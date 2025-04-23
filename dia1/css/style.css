@@ -15,10 +15,9 @@
     height: auto;
     text-align: center;
     overflow: hidden;
-    /* crear con js un ver mas..*/
     margin: 10px;
     cursor: pointer;
-    transition: all 0.5s ease;
+    transition: transform 0.5s ease;
     gap: 10px
     
 }
