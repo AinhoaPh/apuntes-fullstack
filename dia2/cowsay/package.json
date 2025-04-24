@@ -12,7 +12,9 @@
   "author": "Tomi",
   "license": "ISC",
   "dependencies": {
-    "cowsay": "^1.6.0",
+    "cowsay": "^1.6.0"
+  },
+  "devDependencies": {
     "nodemon": "^3.1.10"
   }
 }
