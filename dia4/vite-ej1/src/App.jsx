@@ -28,14 +28,7 @@ const App = () => {
       <h1>Hola{nombre}!</h1>
 
 {
-  alumnos.map(({nombre, edad}) => {
-    return (
-      <>
-        <div>{nombre}</div>
-        <span>{edad}</span>
-      </>
-    )
-  }
+  alumnos.map(({}))
 }
 
 
