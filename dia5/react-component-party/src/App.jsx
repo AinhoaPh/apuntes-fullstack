@@ -1,6 +1,7 @@
 import TarjetaUsuario from './components/TarjetaUsuario'
 import ListaTareas from './components/ListaTareas'
 import PerfilUsuario from './components/PerfilUsuario';
+import GaleriaImagenes from './components/GaleriaImagenes';
 import './App.css'
 
 function App() {
@@ -24,6 +25,12 @@ function App() {
       }
       };
 
+      const imageList = [
+        { src: "https://rickandmortyapi.com/api/character/avatar/1.jpeg", alt: 'Rick Sanchez' },
+        { src: "https://rickandmortyapi.com/api/character/avatar/2.jpeg", alt: 'Morty Smith' },
+        { src: "https://rickandmortyapi.com/api/character/avatar/3.jpeg", alt: 'Summer Smith' },
+      ];
+
   return (
     <>
     <main className="main">
@@ -42,6 +49,10 @@ function App() {
       <h2>Perfil de Usuario</h2>
       <PerfilUsuario usuario={userData}
       />
+    </section>
+    <section>
+      <h2>Galeria de Imagenes</h2>
+      <GaleriaImagenes imagenes={imageList} />
     </section>
     </main>
     </>
