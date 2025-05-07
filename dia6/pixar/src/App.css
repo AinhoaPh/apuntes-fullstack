@@ -1,0 +1,27 @@
+body{
+  background-color: rgba(255,255,255,1);
+  
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+  padding: 20px;
+}
+a{
+  color: black;
+}
+
+footer {
+  display: flex;
+  color: black;
+  cursor: pointer;
+  
+  
+}
+footer ul {
+list-style: none;
+
+
+}

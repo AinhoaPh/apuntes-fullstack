@@ -7,7 +7,7 @@ const PerfilUsuario = ({ usuario}) => {
     return (
       <div className="card">
         <h2>{nombre}</h2>
-        <img src={img} alt={`Avatar de ${nombre}`} style={{ width: "150px", borderRadius: "10px" }} />
+        <img src={img} alt={`Avatar de ${nombre}`} style={{ width: "150px", borderRadius: "10px", listStyle: "none" }} />
         <p>Email: {email}</p>
         <p>Dirección:</p>
         <ul>
@@ -20,3 +20,9 @@ const PerfilUsuario = ({ usuario}) => {
   };
   
   export default PerfilUsuario;
+
+
+
+
+  //**
+  // import url '@import url('https://assets.css-tricks.ir/font/font.css');'  CONVERTIR cualquier texto a rayitas con font-family: "Mock..."*/

@@ -2,6 +2,9 @@ import TarjetaUsuario from './components/TarjetaUsuario'
 import ListaTareas from './components/ListaTareas'
 import PerfilUsuario from './components/PerfilUsuario';
 import GaleriaImagenes from './components/GaleriaImagenes';
+import BlogPost from './components/BlogPost';
+import Tarea from './components/Tarea'
+// import UserCard from './components/UserCard'
 import './App.css'
 
 function App() {
@@ -39,6 +42,7 @@ function App() {
     <div className="card__container">
     <TarjetaUsuario nombre="Blue" edad={4} ocupacion="Perrito" />
     <TarjetaUsuario nombre="Peluso" edad={20} ocupacion="Gatito" />
+    <TarjetaUsuario nombre="Gizmo" edad={8} ocupacion="" />
     </div>
     </section>
     <section className="tareaList">
@@ -46,13 +50,21 @@ function App() {
     <ListaTareas tareas={tareas}/>
     </section>
     <section>
-      <h2>Perfil de Usuario</h2>
+      <h2 className="galeria__h2">Perfil de Usuario</h2>
       <PerfilUsuario usuario={userData}
       />
     </section>
-    <section>
-      <h2>Galeria de Imagenes</h2>
-      <GaleriaImagenes imagenes={imageList} />
+    <section className="galeria">
+      <h2 className="galeria__h2">Galeria de Imagenes</h2>
+      <GaleriaImagenes className="galeria__img" imagenes={imageList} />
+    </section>
+    <section className="card">
+    <BlogPost titulo="Mi Primer Post" autor="Tomi" fecha="2024-07-01">
+<p>Lorem ipsum dolor, adipisci unde tempora recusandae tenetur...</p>
+<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+</BlogPost>
+<h3>Tarjeta de Usuario</h3>
+
     </section>
     </main>
     </>
