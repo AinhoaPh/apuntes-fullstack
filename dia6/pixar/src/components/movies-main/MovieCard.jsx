@@ -1,5 +1,5 @@
 
-const MovieCard = (title, image, bg, text) => {
+const MovieCard = ({title, image, bg, text}) => {
     const movieCardStyle = bg?{    
         backgroundImage: `url(${bg})`,
 

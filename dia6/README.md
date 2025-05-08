@@ -20,7 +20,34 @@ Permite ver el estado y las props de cada componente asi como su jerarquia
 
 - Lo que hacemos es una copia de las propiedades del objeto y no una refeencia al objeto original.
 - Podemos enviar todas las propiedades de un objeto como props con el operador "..."
+- El spread hace una copia de los objetos o array de primer nivel, no complicados 
+
 ```js
+const alumno = {
+    momnre: "Lucas",
+    hobbies: ["futbol","voley", "programacion"]
+}
+const alumno_copia = {...alumno};
+console.log(alumno_copia);
+
+```
+
+Para duplicar un array lista u objeto con subniveles :
+```js
+const objeto_copia = JSON.parse(JSON.Stringify(objeto));
+```
+```js
+
+// variables primitivas:bool, null, undefinedm number
+// variables refereciales: array objetos funciones 
+// podemos utilizar el operdor spread para hacer una copia de capa item y asi no se modifica 
+const alumno = {
+    nombre:"Blue"
+}
+const alumno2 = {...alumno};
+alumno.nombre= "maria";
+console.log(alumno2.nombre);// Maria
+
 const userData = {
     nombre: "Marta",
     edad: 23,
@@ -56,6 +83,18 @@ const userData = {
  }
 ```
 
+Ejemplo semana spead en Arrays:
+
+
+```js
+const semana = ["Lunes"];
+let copia = [...semana];// Lunes
+copia = [...copia, "Martes"] //Lunes, Martes 
+copia = [...copia, "Miercoles"] //Lunes, Martes, Miercoles 
+copia = ["Domingo", ...copia, "Jueves"]// Domingo, lunes, martes, miercoles, jueves.
+
+
+```
 
 # Uso de Map()
 
