@@ -3,7 +3,9 @@
   padding: 0;
   box-sizing: border-box;
 }
-
+body{
+  background-color: #fff;
+}
 
 .header {
   display: flex;
@@ -48,7 +50,7 @@
   width: 100%;
 }
 
-footer {
+.footer {
   display: flex;
   color: #010101;
   cursor: pointer;
@@ -57,8 +59,9 @@ footer {
 }
 
 footer a {
-  list-style: none;
+  
   color: #010101;
+  text-decoration: underline;
 
 
 }

@@ -5,6 +5,9 @@ import Footer from './components/footer/Footer'
 import MovieCard from './components/movies-main/MovieCard'
 import { movie, gallery, imageList, moviePrincipal } from './data/data'
 import './App.css'
+import {React} from 'react'
+
+
 
 
 
