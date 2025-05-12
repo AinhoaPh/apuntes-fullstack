@@ -4,8 +4,9 @@ import MovieSection from './components/movies-main/MovieSection'
 import Footer from './components/footer/Footer'
 import MovieCard from './components/movies-main/MovieCard'
 import { movie, gallery, imageList, moviePrincipal } from './data/data'
-import './App.css'
 import {React} from 'react'
+
+import './src/css/app.css'
 
 
 
@@ -29,7 +30,7 @@ function App() {
       <MovieSection movies={movie} />
       </section>
       <section >
-        <MovieSection movies={imageList}/> 
+        <MovieSection  movies={imageList}/> 
       </section>
        </main>
       

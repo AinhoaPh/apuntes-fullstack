@@ -3,11 +3,11 @@
 Son funciones que nos permiten agregar estados u otras caracteristicas especificas a REACT en los componentes funcionales. Se los considera Super Poderes de REACT 
 
 Algunos de ellos:
-`useStae, useEffect, useReducer, useCallback, useRef`
+`useState, useEffect, useReducer, useCallback, useRef`
 
 Vamos a poder crear nuestros propios hooks perrsonalizados sino los llamados `Custom Hooks`
 
-useState es el mas importante y el mas utilizado de los hooks . Ya que nos permite añadir un "Estado" a nuestro componente .
+useState es el mas importante y el mas utilizado de los hooks . Ya que nos permite añadir un "Estado(valor)" a nuestro componente .
 Cada vez que realicemos un camde estado el componente se va a volver a renderizar.
 
 ```js
@@ -39,14 +39,31 @@ console.log(valor());//10 se ha sincronizado con el nuevo valor
 
 # Hook: useState
 
-Permite a los componenetes tener un "Estado" local como si fueran `variables inteligentes`.
+Permite a los componentes tener un "Estado" local como si fueran `variables inteligentes`.
 
 - Hara un re-render del componente cada vez que se actualice el estado.
-- Conserva su valor entre cada renderizado
-- Se puede usar multiples veces en un mismo componenete, para manejar diferentes estados. 
+- Conserva su valor entre cada renderizado de la nueva variable.
+- Se puede usar multiples veces en un mismo componente, para manejar diferentes estados. 
 
-UseState tiene 2 caracteristicas: 1. Devuelve un array con 2 elementos: el valor actual del estado y una funcion para ctualizarlo.
+ caracteristicas: 
+1. Devuelve un array con 2 elementos: el valor actual del estado y una funcion para actualizarlo.
 2. Acepta un argumento opcional que es el valor incial del estado
+3. Cada vez que cambia el estado del componenete se vuelve a renderizar
+4. Al actualizar un estado que deoende del estado anterior se recomienda crear una funcion de CallBack con `prevState`en ñllugar de un valor directo 
+
+```jsx
+// ejem1
+setCounter( prev=> prev+1);
+
+
+// ejem 2
+setValue(prevList => ({
+    ...prevList,
+    newData
+}))
+
+
+```
 
 ```jsx
 import{useState} from 'react'
@@ -58,7 +75,7 @@ const App = ()=>{
 
 ```
 - Valor: variable que contiene el valor actual de estado
-- setValor: Funcion para actualizar el valor del estado
+- setValor: Funcion para actualizar el nuevo valor del estado
 - valorInicial: Valor con el que comienza nuestra variable
 
 1. Contador simple: 
@@ -66,6 +83,11 @@ crear un componente con un boton que cada vez que le hago click incrementa el va
 
 2. Lista de tares
 crear un componente de input + un boton de agregar para ir agregando tareas a nuetsra lista en la parte inferior imprimir todas
+3. lista tareas
+4. eventos
+5. form
+6. galeria de imagenes
+crear una gaelria donde el usuario pueda navegar entre un array de imagenes con un boton para avanzar de imagen y con otro para retroceder un carrusell si llego a la primer vuelvo a empezar 
 
 ```jsx
 // import TarjetaUsuario from './components/TarjetaUsuario'

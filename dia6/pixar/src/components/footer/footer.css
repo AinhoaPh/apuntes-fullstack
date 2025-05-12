@@ -1,0 +1,34 @@
+.footer {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    padding: 40px;
+    background-color: #f6f6f4;
+    width: 100%;
+  }
+  
+  .footer__section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  
+  .footer__title {
+    font-weight: bold;
+    font-size: 16px;
+    color: #010101;
+  }
+  
+  .footer__list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  
+  .footer__link {
+    text-decoration: underline;
+    color: #010101;
+  }

@@ -47,28 +47,7 @@ body{
   align-items: center;
   padding: 20px;
   height: 100%;
-  width: 100%;
+  width: 100vw;
 }
 
-.footer {
-  display: flex;
-  color: #010101;
-  cursor: pointer;
 
-
-}
-
-footer a {
-  
-  color: #010101;
-  text-decoration: underline;
-
-
-}
-
-.movieList {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-}
