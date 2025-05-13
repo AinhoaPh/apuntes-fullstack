@@ -2,7 +2,7 @@ import { linksFilms, linksTech } from "../../data/footerData";
 import { linksCareers, linksMore, linksPrivacy } from "../../data/footerData";
 import FooterList from './FooterList.jsx'
 import FooterLinks from './FooterLinks.jsx'
-import '../css/footer.css'
+import '../footer/Footer.css'
 
 
 const Footer = () => {

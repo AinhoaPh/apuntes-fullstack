@@ -6,8 +6,7 @@ import {
   ListaTareas,
   Login,
   GaleriaImg,
-  Adivinanza,
-  TextArea
+  Adivinanza
 } from './components/UseState';
 
 function App() {
@@ -20,7 +19,6 @@ function App() {
       <Login />
       <GaleriaImg />
       <Adivinanza />
-      <TextArea />
     </>
   );
 }

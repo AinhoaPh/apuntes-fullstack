@@ -6,7 +6,7 @@ import MovieCard from './components/movies-main/MovieCard'
 import { movie, gallery, imageList, moviePrincipal } from './data/data'
 import {React} from 'react'
 
-import './src/css/app.css'
+import "./css/App.css";
 
 
 

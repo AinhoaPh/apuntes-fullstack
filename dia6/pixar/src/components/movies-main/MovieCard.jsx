@@ -7,9 +7,9 @@ const MovieCard = ({title, image, bg, text}) => {
         backgroundColor: "black"
     }
     return ( 
-        <div className="movie-card" style={movieCardStyle}>
-            <img src={image} alt={title} className="movie__img" />
-            <p>{text}</p>
+        <div className="galeria" style={movieCardStyle}>
+            <img src={image} alt={title} className="galeria__img" />
+            <p className="galeria__text">{text}</p>
 
         </div> 
      );

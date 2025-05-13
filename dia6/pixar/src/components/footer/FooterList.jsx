@@ -11,7 +11,7 @@ const FooterList = () => {
       <ul className="footer__list">
         {redesList.map(({ id, href, alt, icon }) => (
           <li key={id}>
-            <a href={href} aria-label={alt} className="footer__list">
+            <a href={href} aria-label={alt} className="footer__rrss">
               <i className={icon}></i>
             </a>
           </li>

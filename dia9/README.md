@@ -49,7 +49,7 @@ Permite a los componentes tener un "Estado" local como si fueran `variables inte
 1. Devuelve un array con 2 elementos: el valor actual del estado y una funcion para actualizarlo.
 2. Acepta un argumento opcional que es el valor incial del estado
 3. Cada vez que cambia el estado del componenete se vuelve a renderizar
-4. Al actualizar un estado que deoende del estado anterior se recomienda crear una funcion de CallBack con `prevState`en ñllugar de un valor directo 
+4. Al actualizar un estado que depende del estado anterior se recomienda crear una funcion de CallBack con `prevState`en lugar de un valor directo (pregunta el valor y lo usa) se usa siempre den form
 
 ```jsx
 // ejem1
@@ -88,6 +88,8 @@ crear un componente de input + un boton de agregar para ir agregando tareas a nu
 5. form
 6. galeria de imagenes
 crear una gaelria donde el usuario pueda navegar entre un array de imagenes con un boton para avanzar de imagen y con otro para retroceder un carrusell si llego a la primer vuelvo a empezar 
+7. Jueg de adivinanza
+Desarrollar un juego donde el usuario intente adivinar un numero aleatorio entre 1 y 100 que el juego devuelva pistas de mas alto o mas bajo hasta adivinar el numero 
 
 ```jsx
 // import TarjetaUsuario from './components/TarjetaUsuario'
