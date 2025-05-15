@@ -235,3 +235,261 @@ export const Adivinanza = () => {
     </div>
   );
 };
+
+// ------------------- Temporizador -------------------
+export const Temporizador = () => { 
+  // Estado para almacenar el tiempo transcurrido
+  const [tiempo, setTiempo] = useState(0);
+
+  // Estado para verificar si el temporizador está activo
+  const [isActive, setIsActive] = useState(false);
+
+  // Estado para almacenar el ID del intervalo (para detenerlo después)
+  const [intervalId, setIntervalId] = useState(null);
+
+  // Función para iniciar el temporizador
+  const handleStart = () => {
+    if (isActive) return; // Si ya está activo, no hacer nada
+
+    setIsActive(true); // Cambiar el estado a activo
+    const id = setInterval(() => {
+      setTiempo((prevTiempo) => prevTiempo + 1); // Incrementar el tiempo cada segundo sumar uno en un intervalo de tiempo que crea una uncion y se ejecuta cada un segundo 
+    }, 1000);
+    setIntervalId(id); // Guardar el ID del intervalo
+  };
+
+  // Función para detener el temporizador
+  const handleStop = () => {
+    clearInterval(intervalId); // Detener el intervalo
+    setIsActive(false); // Cambiar el estado a inactivo
+  };
+
+  // Función para reiniciar el temporizador
+  const handleReset = () => {
+    clearInterval(intervalId); // Detener el intervalo
+    setTiempo(0); // Reiniciar el tiempo a 0
+    setIsActive(false); // Cambiar el estado a inactivo
+  };
+
+  return (
+    <div>
+      <h2>Temporizador</h2>
+      {/* Mostrar el tiempo transcurrido */}
+      <p>{tiempo} segundos</p>
+
+      {/* Botón para iniciar el temporizador */}
+      <button onClick={handleStart}>Iniciar</button>
+
+      {/* Botón para detener el temporizador */}
+      <button onClick={handleStop}>Detener</button>
+
+      {/* Botón para reiniciar el temporizador */}
+      <button onClick={handleReset}>Reiniciar</button>
+    </div>
+  );
+}
+
+
+//--------- Calculadora ----------//
+
+
+// export const Calculadora1 = () => {
+//   const [resultado, setResultado] = useState(0);
+//   const [num1, setNum1] = useState(0);
+//   const [num2, setNum2] = useState(0);
+//   const [operacion, setOperacion] = useState("+");
+
+//   const handleCalcular = () => {
+//     switch (operacion) {
+//       case "+": setResultado(num1 + num2); break;
+//       case "-": setResultado(num1 - num2); break;
+//       case "*": setResultado(num1 * num2); break;
+//       case "/": setResultado(num1 / num2); break;
+//       default: setResultado(0); break;
+//     }
+//   };
+
+//   return (
+//     <div>
+//       <h2>Calculadora</h2>
+//       <input
+//         type="number"
+//         value={num1}
+//         onChange={(e) => setNum1(e.target.valueAsNumber)}
+//       />
+
+//       <select
+//         value={operacion}
+//         onChange={(e) => setOperacion(e.target.value)}
+//       >
+//         <option value="+"> + </option>
+//         <option value="-"> - </option>
+//         <option value="*"> × </option>
+//         <option value="/"> ÷ </option>
+//       </select>
+
+//       <input
+//         type="number"
+//         value={num2}
+//         onChange={(e) => setNum2(e.target.valueAsNumber)}
+//       />
+
+//       <button onClick={handleCalcular}>=</button>
+//       <p>Resultado: {resultado}</p>
+//     </div>
+//   );
+// };
+
+/* Calculadora */
+
+ 
+
+export const Calculadora = () => {
+  // Estado para almacenar los datos del formulario: números, operación y resultado
+  const [formData, setFormData] = useState({
+    num1: 0, 
+    num2: 0, 
+    operacion: "+",
+    
+  });
+  const [resultado, setResultado] = useState(0);
+
+  const handleCalcular = () => {
+    const n1 = parseFloat(formData.num1); // Convertir el primer número a float
+    const n2 = parseFloat(formData.num2); // Convertir el segundo número a float
+        switch (operacion) {
+          case "+": setResultado(n1 + n2); break;
+          case "-": setResultado(n1 - n2); break;
+          case "*": setResultado(n1 * n2); break;
+          case "/": setResultado(n1 / n2); break;
+          default: setResultado(0); break;
+        }
+      };
+
+  // Función para manejar los cambios en los inputs y el select
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+
+
+    // Actualizar el estado con los valores ingresados
+    setFormData((prevState) => ({
+      ...prevState,// copia de esa info
+
+      [name]: value // Actualizar el campo correspondiente (num1, num2 o operacion) los name asigandos
+
+    
+    }));
+  };
+ const { num1, num2, operacion } = formData; // Desestructuración del estado para obtener los valores de num1, num2 y operacion
+  return (
+    <>
+      <h2>Calculadora</h2>
+      {/* Input para el primer número */}
+      <input
+        type="number"
+        name="num1"
+        value={num1}
+        onChange={handleChange}
+      />
+
+      {/* Select para elegir la operación */}
+      <select
+        name="operacion"
+        value={operacion}
+        onChange={handleChange}
+      >
+        <option value="+"> + </option>
+        <option value="-"> - </option>
+        <option value="*"> X </option>
+        <option value="/"> ÷ </option>
+      </select>
+
+      {/* Input para el segundo número */}
+      <input
+        type="number"
+        name="num2"
+        value={num2}
+        onChange={handleChange}
+      />
+
+      {/* Botón para calcular el resultado */}
+      <button onClick={handleCalcular}>=</button>
+
+      {/* Mostrar el resultado */}
+      <p >Resultado:{resultado}</p>
+    </>
+  );
+};
+
+
+
+
+// Carrito
+
+
+// Agregar boton para finalizar compra y que o Agregar un check box que pregunta si quiere envio a domicilio 
+
+export const CarritoFinal = () => {
+  const [carrito, setCarrito] = useState([]); 
+  const [envio, setEnvio]= useState(false)
+  const productos = [
+    {id:1, nombre:"Vestido", precio:40},
+    {id:2, nombre:"Pantalón", precio:40},
+    {id:3, nombre:"Camiseta", precio:20},
+    {id:4, nombre:"Falda", precio:20}
+
+  ]
+
+
+  // Recorre el array y lo reduce a un valor
+
+  
+  const handleAgregarAlCarrito = (producto) => {
+    setCarrito([...carrito, producto]);
+  }
+
+
+   const total = carrito.reduce((total, producto) => total + producto.precio, 0);
+const handleVaciar = (producto)=>{
+  setCarrito([]);
+}
+  const handleFinalizar = () =>{
+  alert(`Gracias por su compra. Total:${total} `)
+ setCarrito([]);
+ setEnvio(false)
+   
+  }
+  return(
+    <>
+    <h2>Carrito </h2>
+    <h3>Productos</h3>
+    <ul>
+
+      {productos.map((producto) => {
+        const {id, nombre, precio}= producto
+        return (  <li key={id}>
+          ${nombre} - ${precio}
+          <button onClick={()=>handleAgregarAlCarrito(producto)}>Agregar</button>
+        </li>)
+      }
+      )}
+
+    </ul>
+      <hr />
+<p >Total:${envio? total + 10: total}$</p>
+
+    <label>Envío a domicilio (+10$)
+      <input type="checkbox" checked={envio} onChange={(e)=>setEnvio(e.target.checked)}  />
+    </label>
+    <hr />
+    
+    <button onClick={handleVaciar}>Vaciar Carrito</button>
+    <button onClick={handleFinalizar}>Finalizar Compra</button>
+
+
+
+
+    
+    </>
+  )
+}

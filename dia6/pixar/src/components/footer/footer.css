@@ -8,6 +8,8 @@
 
   }
   
+  /*LINKS INFO & PRIVACY */
+
   .footer__section {
     display: flex;
     flex-direction: column;
@@ -15,20 +17,26 @@
     gap: 12px;
    
   }
+  .footer__section li{
+    list-style: none;
+  }
   
   .footer__title {
     font-weight: bold;
-    font-size: 16px;
+    
     color: #010101;
   }
   
   
   .footer__link {
     text-decoration: underline;
-    color: #010101;
+    color: #4d4d4c;
     list-style: none;
+    
   }
   
+  /* RRSS*/
+
   .footer__list {
     list-style: none;
     padding: 0;
@@ -38,8 +46,28 @@
     align-items: center;
    margin-right: 40px;
   }
+ 
   .footer__rrss{
 
     color: #010101;
 
+  }
+
+
+  /* Privacy */
+  .footer__privacy {
+
+    display: flex;
+    justify-content: center;
+    font-size: 12px;
+    list-style: none;
+  
+    color: #010101;
+    margin-top: 20px;
+    text-align: center;
+    cursor: pointer;
+  }
+  .footer__privacy a {
+    text-decoration: none;
+    color: #010101;
   }

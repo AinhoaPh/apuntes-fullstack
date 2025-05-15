@@ -26,9 +26,9 @@ export const linksMore = [
     { id: 6, href: "#", text: "FAQ's" },
 ];
 export const linksPrivacy = [
-    { id: 1, href: "#", text: "Do Not Sell or Share My Personal Information" },
-    { id: 2, href: "#", text: "Privacy Policy" },
-    { id: 3, href: "#", text: "Your US State Privacy Rights" },
-    { id: 4, href: "#", text: "Children's Online Privacy Policy" },
-    { id: 5, href: "#", text: "Interest Based Ads" },
+   
+    { id: 1, href: "#", text: "Privacy Policy " },
+    { id: 2, href: "#", text: "Your US State Privacy Rights " },
+    { id: 3, href: "#", text: "Children's Online Privacy Policy " },
+    { id: 4, href: "#", text: "Interest Based Ads " },
 ];

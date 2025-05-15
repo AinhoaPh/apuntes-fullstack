@@ -6,7 +6,11 @@ import {
   ListaTareas,
   Login,
   GaleriaImg,
-  Adivinanza
+  Adivinanza,
+  Temporizador,
+  Calculadora,
+
+  CarritoFinal
 } from './components/UseState';
 
 function App() {
@@ -19,6 +23,10 @@ function App() {
       <Login />
       <GaleriaImg />
       <Adivinanza />
+      <Temporizador/>
+      <Calculadora />
+      
+      <CarritoFinal />
     </>
   );
 }

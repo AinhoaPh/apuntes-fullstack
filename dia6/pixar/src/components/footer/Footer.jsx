@@ -2,6 +2,7 @@ import { linksFilms, linksTech } from "../../data/footerData";
 import { linksCareers, linksMore, linksPrivacy } from "../../data/footerData";
 import FooterList from './FooterList.jsx'
 import FooterLinks from './FooterLinks.jsx'
+
 import '../footer/Footer.css'
 
 
@@ -35,9 +36,7 @@ const Footer = () => {
                     <FooterLinks title="MORE" items={linksMore} />
 
                 </section>
-                <section >
-                    <FooterLinks title="" items={linksPrivacy} />
-                </section>
+
             </footer>
         </>
     );

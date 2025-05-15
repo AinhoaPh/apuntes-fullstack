@@ -1,7 +1,7 @@
 // src/components/UseState.jsx
 import { useState } from 'react';
 
-
+// ------------------- Contador Simple -------------------
 export const ContadorSimple = () => {
   const [num, setNum] = useState(0);
 
@@ -19,6 +19,7 @@ export const ContadorSimple = () => {
   );
 };
 
+// ------------------- Interruptor -------------------
 export const InterruptorOnOff = () => {
   const [isOn, setIsOn] = useState(false);
   const handleClick = () => setIsOn(!isOn);
@@ -43,6 +44,7 @@ export const InterruptorOnOff = () => {
   );
 };
 
+// ------------------- Eventos Input -------------------
 export const EventosInput = () => {
   const [mensaje, setMensaje] = useState("");
   const [showImage, setShowImage] = useState(true);
@@ -62,6 +64,7 @@ export const EventosInput = () => {
   );
 };
 
+// ------------------- Lista de Tareas -------------------
 export const ListaTareas = () => {
   const [tarea, setTarea] = useState("Nueva tarea");
   const [listaTareas, setListaTareas] = useState(["tarea 1", "tarea 2"]);
@@ -90,52 +93,38 @@ export const ListaTareas = () => {
   );
 };
 
+// ------------------- Login Form -------------------
 export const Login = () => {
-  // datos por separado
-  // const [nombre, setNombre] = useState("");
-  // const [email, setEmail] = useState("");
-
-  //datos agrupados en un unico objeto
   const [formData, setformData] = useState({
     nombre: "",
     email: ""
-  })
+  });
 
   const handleSubmit = (e) => {
-    // en JS se utiliza para omitir en comportamineto por defecto, y no envia el formulario
     e.preventDefault();
     const { nombre, email } = formData;
-
-
-    // validar datos mantiene un solo nivel e condicion, si cumple con las condicionales se ejcuta el codigo
 
     if (nombre.trim() === "" || email.trim() === "") {
       alert("Por favor completa todos los campos");
       return;
     }
-    // console.log("Nombre: ", nombre);
-    // console.log("Email: ", email); 
+
     if (!email.includes("@") || !email.includes(".")) {
       alert("El email no es válido");
       return;
     }
+
     const data = `Nombre es: ${formData.nombre} y el email es: ${formData.email}`;
-
-
-    // console.log("Target: ", nombre);
-    // console.log("Value: ", email);
     alert(data);
-  }
+  };
+
   const handleChange = (e) => {
-    console.log("Target: ", e.target.name);
-    console.log("Value: ", e.target.value);
+    const { name, value } = e.target;
     setformData(prevState => ({
       ...prevState,
-      nombre: e.target.value
-    }))
-
-  }
-
+      [name]: value
+    }));
+  };
 
   return (
     <>
@@ -146,30 +135,26 @@ export const Login = () => {
           name="nombre"
           value={formData.nombre}
           placeholder="Nombre..."
-          // onChange={(e) => setNombre(e.target.value)}/>
           onChange={handleChange}
         />
-      </form>
-      <br />
-      <form>
-        <input type="email"
+        <br /><br />
+        <input
+          type="email"
           name="email"
           value={formData.email}
           placeholder="Correo..."
-          onChange={handleChange} />
+          onChange={handleChange}
+        />
+        <br /><br />
+        <button type="submit">Acceder</button>
       </form>
-
-
-      <button type="submit">Acceder</button>
     </>
-  )
-}
+  );
+};
 
+// ------------------- Galería -------------------
 export const GaleriaImg = () => {
-  //muestra la imagen empezando desde la posicion 0
   const [indice, setIndice] = useState(0);
-
-
 
   const galeria = [
     { id: 1, src: "img1.jpeg" },
@@ -182,127 +167,140 @@ export const GaleriaImg = () => {
   const { id, src } = galeria[indice];
 
   const handleAnterior = () => {
-    //  setIndice(indice-1);
-    // si estoy en la primera imagen, me lleva a la ultima
-    // operador modulo
-    const nextIndice = (indice == 0) ? galeria.length - 1 : indice - 1;
+    const nextIndice = (indice === 0) ? galeria.length - 1 : indice - 1;
     setIndice(nextIndice);
-  }
+  };
+
   const handlePosterior = () => {
-
-    // setIndice((prev)=>prev + 1);
-    if (indice === galeria.length - 1) {
-      setIndice(0);
-    }
-    else if (indice === 0) {
-      setIndice(indice + 1);
-    }
-
-    // operador modulo 
-    // setIndice((indice)=>(indice+1)% galeria.length);
-
-
-    //   ternario
-    //  const nextIndice = (indice === galeria.length - 1) ? 0 : indice + 1;
-    //  setIndice(nextIndice);
-
-  }
-
-  // handle anterior y handle posterior 
-  // const indiceAnt = (indice === 0) ? galeria.length - 1 : indice - 1;
-  // const indicePost = (indice === galeria.length - 1) ? 0 : indice + 1;
+    const nextIndice = (indice === galeria.length - 1) ? 0 : indice + 1;
+    setIndice(nextIndice);
+  };
 
   return (
     <div>
       <h2>Galería de Imágenes</h2>
-
-
       <div>
-        <button onClick={handlePosterior}>Posterior</button>
-        <img src={galeria[id]} alt={`Imagen ${id + 1}`} />
         <button onClick={handleAnterior}>Anterior</button>
+        <img src={src} alt={`Imagen ${id}`} />
+        <button onClick={handlePosterior}>Posterior</button>
       </div>
-
-
     </div>
   );
-}
+};
 
-
-
+// ------------------- Adivinanza -------------------
 export const Adivinanza = () => {
-  const [intento, setIntento] = useState();// el numero que ingresa
-  const [mensaje, setMensaje] = useState("Prueba con un numero entre 1 y 100");
-  const [numeroSecreto, setNumeroSecreto] = useState(0);// numero aleatorio entre 1 y 100
-  const [cantIntentos, setCantIntentos] = useState(0);// numero de intentos del usuario
-  const [isJugando, setIsJugando] = useState(false);// si ya jugo o no
-  const numeroAleatorio = Math.floor(Math.random() * 100) + 1;// numero aleatorio entre 1 y 100
+  const [intento, setIntento] = useState("");
+  const [mensaje, setMensaje] = useState("Prueba con un número entre 1 y 100");
+  const [numeroSecreto, setNumeroSecreto] = useState(Math.floor(Math.random() * 100) + 1);
+  const [cantIntentos, setCantIntentos] = useState(0);
+  const [isJugando, setIsJugando] = useState(true);
 
   const handleChange = (e) => {
-    const { type, name, value } = e.target;// destructuracion de los datos de el evento
-    setIntento(value);// el valor del input
+    setIntento(e.target.value);
   };
 
   const handleAdivinar = () => {
     const num = parseInt(intento);
-    if (num === numeroAleatorio) {
-      setMensaje(`Felicidades adivinaste el numero ${numeroAleatorio} en ${cantIntentos + 1} intentos`);
-    } else if (num < numeroAleatorio) {
-      setMensaje("El numero es mayor");
-      setIsJugando("false")
-
-    }
-    else {
-      setMensaje("El numero es menor");
-      setIsJugando("false")
+    if (isNaN(num)) {
+      setMensaje("Introduce un número válido.");
+      return;
     }
 
-    setCantIntentos(cantIntentos++);
-    const iniciarJuego = () => {
-      const numeroAleatorio = Math.floor(Math.random() * 100) + 1;
-      setNumeroSecreto(numeroAleatorio);
-      setMensaje("")
+    setCantIntentos(prev => prev + 1);
+
+    if (num === numeroSecreto) {
+      setMensaje(`¡Felicidades! Adivinaste el número ${numeroSecreto} en ${cantIntentos + 1} intentos`);
+      setIsJugando(false);
+    } else if (num < numeroSecreto) {
+      setMensaje("El número es mayor.");
+    } else {
+      setMensaje("El número es menor.");
     }
-    return (
-      <div>
-        <h2>Adivine el numero del 1 al 100{numeroSecreto}</h2>
-        <p>¿Cuál es el número?</p>
+  };
 
-        <input type="number" value={intento} onChange={handleChange} />
-        <button onClick={handleAdivinar}>Adivinar</button>
-        <p>{mensaje}</p>
-        {!isJugando && <button onClick={iniciarJuego}>Play</button>}
+  const iniciarJuego = () => {
+    setNumeroSecreto(Math.floor(Math.random() * 100) + 1);
+    setIntento("");
+    setMensaje("Prueba con un número entre 1 y 100");
+    setCantIntentos(0);
+    setIsJugando(true);
+  };
 
+  return (
+    <div>
+      <h2>Adivina el número del 1 al 100</h2>
+      <input type="number" value={intento} onChange={handleChange} />
+      <button onClick={handleAdivinar}>Adivinar</button>
+      <p>{mensaje}</p>
+      {!isJugando && <button onClick={iniciarJuego}>Jugar de nuevo</button>}
+    </div>
+  );
+};
 
-      </div>
-    );
-  }
-
-}
-
-export const TextArea = ()  => {  
+// ------------------- TextArea (contador) -------------------
+export const TextArea = () => {
   const [texto, setTexto] = useState("");
-  const [contador, setContador] = useState(0);
-
 
   const contadorPalabras = () => {
-  
-    return texto.split(" ")
-  }
+    return texto.trim().split(/\s+/).filter(p => p !== "").length;
+  };
 
   return (
     <div>
       <h2>TextArea</h2>
-      <textarea 
-      onChange={setTexto(e.target.value)}
-        name="" 
-        id=""
+      <textarea
+        onChange={(e) => setTexto(e.target.value)}
         placeholder="Escriba su texto"
         value={texto}
         rows={5}
-        cols={30} />
+        cols={30}
+      />
       <div>
         <span>Chars: {texto.length}</span> / <span>Words: {contadorPalabras()}</span>
       </div>
-      </div>
-  )}
+    </div>
+  );
+};
+
+// ------------------- Temporizador -------------------
+export const Temporizador = () => {
+  const [time, setTime] = useState(0);
+  const [isActive, setIsActive] = useState(false);
+  const [intervalId, setIntervalId] = useState(null);
+
+  const handlePlayPause = () => {
+    if (isActive) {
+      clearInterval(intervalId);
+      setIsActive(false);
+    } else {
+      const id = setInterval(() => {
+        setTime((prevTime) => prevTime + 1);
+      }, 1000);
+      setIntervalId(id);
+      setIsActive(true);
+    }
+  };
+
+  const handleReset = () => {
+    clearInterval(intervalId);
+    setTime(0);
+    setIsActive(false);
+  };
+
+  const formatTime = (time) => {
+    const hours = String(Math.floor(time / 3600)).padStart(2, "0");
+    const minutes = String(Math.floor((time % 3600) / 60)).padStart(2, "0");
+    const seconds = String(time % 60).padStart(2, "0");
+    return `${hours}:${minutes}:${seconds}`;
+  };
+
+  return (
+    <div>
+      <h2>Temporizador</h2>
+      <p>{formatTime(time)}</p>
+      <button onClick={handlePlayPause}>⏯</button>
+      <button onClick={handleReset}>🔄</button>
+    </div>
+  );
+};
