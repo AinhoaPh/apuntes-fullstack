@@ -237,7 +237,7 @@ export const Adivinanza = () => {
 };
 
 // ------------------- Temporizador -------------------
-export const Temporizador = () => { 
+export const Temporizador = () => {
   // Estado para almacenar el tiempo transcurrido
   const [tiempo, setTiempo] = useState(0);
 
@@ -342,29 +342,29 @@ export const Temporizador = () => {
 
 /* Calculadora */
 
- 
+
 
 export const Calculadora = () => {
   // Estado para almacenar los datos del formulario: números, operación y resultado
   const [formData, setFormData] = useState({
-    num1: 0, 
-    num2: 0, 
+    num1: 0,
+    num2: 0,
     operacion: "+",
-    
+
   });
   const [resultado, setResultado] = useState(0);
 
   const handleCalcular = () => {
     const n1 = parseFloat(formData.num1); // Convertir el primer número a float
     const n2 = parseFloat(formData.num2); // Convertir el segundo número a float
-        switch (operacion) {
-          case "+": setResultado(n1 + n2); break;
-          case "-": setResultado(n1 - n2); break;
-          case "*": setResultado(n1 * n2); break;
-          case "/": setResultado(n1 / n2); break;
-          default: setResultado(0); break;
-        }
-      };
+    switch (operacion) {
+      case "+": setResultado(n1 + n2); break;
+      case "-": setResultado(n1 - n2); break;
+      case "*": setResultado(n1 * n2); break;
+      case "/": setResultado(n1 / n2); break;
+      default: setResultado(0); break;
+    }
+  };
 
   // Función para manejar los cambios en los inputs y el select
   const handleChange = (e) => {
@@ -377,10 +377,10 @@ export const Calculadora = () => {
 
       [name]: value // Actualizar el campo correspondiente (num1, num2 o operacion) los name asigandos
 
-    
+
     }));
   };
- const { num1, num2, operacion } = formData; // Desestructuración del estado para obtener los valores de num1, num2 y operacion
+  const { num1, num2, operacion } = formData; // Desestructuración del estado para obtener los valores de num1, num2 y operacion
   return (
     <>
       <h2>Calculadora</h2>
@@ -430,66 +430,72 @@ export const Calculadora = () => {
 // Agregar boton para finalizar compra y que o Agregar un check box que pregunta si quiere envio a domicilio 
 
 export const CarritoFinal = () => {
-  const [carrito, setCarrito] = useState([]); 
-  const [envio, setEnvio]= useState(false)
+  const [carrito, setCarrito] = useState([]);
+  const [envio, setEnvio] = useState(false)
   const productos = [
-    {id:1, nombre:"Vestido", precio:40},
-    {id:2, nombre:"Pantalón", precio:40},
-    {id:3, nombre:"Camiseta", precio:20},
-    {id:4, nombre:"Falda", precio:20}
+    { id: 1, nombre: "Vestido", precio: 40 },
+    { id: 2, nombre: "Pantalón", precio: 40 },
+    { id: 3, nombre: "Camiseta", precio: 20 },
+    { id: 4, nombre: "Falda", precio: 20 }
 
   ]
-
-
-  // Recorre el array y lo reduce a un valor
 
   
   const handleAgregarAlCarrito = (producto) => {
     setCarrito([...carrito, producto]);
   }
 
+  // Recorre el array y lo reduce a un valor
+  const total = carrito.reduce((total, producto) => total + producto.precio, 0);
+  // const setCarrito = carrito.lenght;
 
-   const total = carrito.reduce((total, producto) => total + producto.precio, 0);
-const handleVaciar = (producto)=>{
-  setCarrito([]);
-}
-  const handleFinalizar = () =>{
-  alert(`Gracias por su compra. Total:${total} `)
- setCarrito([]);
- setEnvio(false)
-   
+
+  const handleVaciar = () => {
+    setCarrito([]);
   }
-  return(
+  // crear una funcion para finalizar total con en vio y meter 
+  //{envio ? total + 10 : total}
+
+  const handleFinalizar = () => {
+    alert(`Gracias por su compra. Total:${total} `)
+    //alert(JSON.stringify(productos, null,)), poder mostar el objeto que queramos.
+    setCarrito([]);
+    setEnvio(false)
+    
+
+  }
+
+  return (
     <>
-    <h2>Carrito </h2>
-    <h3>Productos</h3>
-    <ul>
+      <h2>Carrito </h2>
+      <h3>Productos</h3>
+      <ul>
 
-      {productos.map((producto) => {
-        const {id, nombre, precio}= producto
-        return (  <li key={id}>
-          ${nombre} - ${precio}
-          <button onClick={()=>handleAgregarAlCarrito(producto)}>Agregar</button>
-        </li>)
-      }
-      )}
+        {productos.map((producto) => {
+          const { id, nombre, precio } = producto
+          return (<li key={id}>
+            ${nombre} - ${precio}
+            <button onClick={() => handleAgregarAlCarrito(producto)}>Agregar</button>
+          </li>)
+        }
+        )}
 
-    </ul>
+      </ul>
       <hr />
-<p >Total:${envio? total + 10: total}$</p>
+      <p style={{color:total>100?"red":"black"}}>Total:$$</p>
 
-    <label>Envío a domicilio (+10$)
-      <input type="checkbox" checked={envio} onChange={(e)=>setEnvio(e.target.checked)}  />
-    </label>
-    <hr />
-    
-    <button onClick={handleVaciar}>Vaciar Carrito</button>
-    <button onClick={handleFinalizar}>Finalizar Compra</button>
+      <label>Envío a domicilio (+10$)
+        <input type="checkbox" checked={envio} onChange={(e) => setEnvio(e.target.checked)} />
+      </label>
+      <hr />
 
-
+      <button onClick={handleVaciar}>Vaciar Carrito</button>
+      <button onClick={handleFinalizar}>Finalizar Compra</button>
 
 
-    
+
+
+
     </>
   )
 }
