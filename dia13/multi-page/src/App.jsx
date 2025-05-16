@@ -5,18 +5,26 @@ import Products from "./pages/Products"
 import Contact from "./pages/Contact"
 
 
-import {NavSearchParams} from './components/Nav'
+import {NavSearchParams, NavPathName} from './components/Nav'
 
 
 import "./css/App.css"
 
 function App() {
   // const [pagina,setPagina]= useState("home")
-  const params= new URLSearchParams(window.location.search)
-  const pagina = params.get("page")||"home";
+  // EL valor de la pagina lo obtienes con: ?...
+  // const params= new URLSearchParams(window.location.search)
+  // const pagina = params.get("page")||"home";
+
+
+  // ejemplo utilizando PathName
+  const pagina = window.location.pathname.slice(1) || "home";// default home
+
+
+  //para darle varlores
   let page;
 
-    
+    // 
     switch(pagina){
       case"contact":page= <Contact /> ; break
       case"about":page= <AboutUs /> ; break
@@ -44,7 +52,15 @@ function App() {
     <button onClick={()=>handlePagina("products")}>Products</button> */}
 
 
-    <NavSearchParams/>
+    {/* MENU con Params */}
+      <NavSearchParams />
+
+      
+      {/* MENU con Path */}
+    <NavPathName/>
+
+
+
   {/* <nav>
     {secciones.map((pagina) =>(
      <button> <a 

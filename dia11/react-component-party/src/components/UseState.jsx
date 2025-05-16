@@ -470,7 +470,7 @@ export const CarritoFinal = () => {
       <h2>Carrito </h2>
       <h3>Productos</h3>
       <ul>
-
+       
         {productos.map((producto) => {
           const { id, nombre, precio } = producto
           return (<li key={id}>
