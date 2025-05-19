@@ -90,7 +90,16 @@ crear un componente de input + un boton de agregar para ir agregando tareas a nu
 crear una gaelria donde el usuario pueda navegar entre un array de imagenes con un boton para avanzar de imagen y con otro para retroceder un carrusell si llego a la primer vuelvo a empezar 
 7. Jueg de adivinanza
 Desarrollar un juego donde el usuario intente adivinar un numero aleatorio entre 1 y 100 que el juego devuelva pistas de mas alto o mas bajo hasta adivinar el numero 
+8. Temporizador
+9. Calculadora
+unificar los states similares en un formData y crear una funcion handleChange para actualizar los resultados 
 
+10. Carrito de compra
+los usuarios añaden items ingresando el nombre y el precio el carrito debe mostrar el total y la cantidad de items agregados
+Ivestiguen el metodo reduce para calcular el total con reduce: el array a un valor
+si el precio supera los 100 euros agregar color rojo al total
+
+Agregar boton para finalizar compra y que o Agregar un check box que pregunta si quiere envio a domicilio 
 ```jsx
 // import TarjetaUsuario from './components/TarjetaUsuario'
 // import ListaTareas from './components/ListaTareas'

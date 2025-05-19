@@ -61,7 +61,7 @@ export const Temporizador = () => {
     return () => {
       clearInterval(intervalo); // limpiamos el intervalo para que no se dispare varias veces
     };
-  }, [activo]); // Solo se vuelve a ejecutar si cambia "activo"
+  }, [activo]); // Solo se vuelve a ejecutar si cambia "activo", cada vez que cambie se ejecuta el codigo
 
   // Función para detener el temporizador (cambia "activo" a false)
   const detener = () => {
