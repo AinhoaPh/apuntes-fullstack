@@ -1,5 +1,6 @@
 import './App.css';
-import { ContadorClicks, EjemploCicloVida, EjTemporizador, ObtenerDatosFetch } from './components/UseEffect';
+import { ContadorClicks, EjemploCicloVida, EjPadre, EjTemporizador, LocalStorageSync, ObtenerDatosFetch, Padre, TamañoPantalla } from './components/UseEffect';
+import UserListFetch from './components/UserListFetch';
 import {
   ContadorSimple,
   InterruptorOnOff,
@@ -35,11 +36,17 @@ function App() {
       
       <CarritoFinal /> */}
       <h2>Ejemplos de useEffect</h2>
-      <EjemploCicloVida/>
-      <EjTemporizador/>
+      {/* <EjemploCicloVida/>
+      <EjTemporizador/> */}
       {/* ej3: Crear un componente que obtenga datos de una API y los muestre en pantalla.(https://jsonplaceholder.typicode.com/posts) */}
-      <ObtenerDatosFetch/>
+      {/* <ObtenerDatosFetch/>
       <ContadorClicks/>
+      <TamañoPantalla/>
+      <LocalStorageSync/>
+      <Padre/>
+      <EjPadre/> */}
+      <UserListFetch/>
+      
     </>
   );
 }

@@ -3,13 +3,13 @@
 Efectos secundarios que va atener nuestro componenete para interactuar con el mundo. Te permite realizar efectos secundarios para los compomnentes funcionales. En terminos simples te permite ejecutar codiggo despues de que el componenete se ha renderizado.
 
 ## Que es un efecto secundario / side Effect
-
+(como se imprimio la pagina, datos traidos etc etc y mientras shacems otrs coss)
 Operaciones que interactuan con el mundo exterior al componente no esta relacionado con la renderizacion del componente.
 
 ## Para que se usa 
 
 1. Realizar peticiones a API ( Fetch de Datos)
-2. Manejar suscripciones: eventos del navegador (resize,scroll), suscripciones a servicios como WebSockets.(comunicaciones en tiempo real,  como chat(escribiendo...), documentos multiples usurios, videojuegos en linea)
+2. Manejar suscripciones: eventos del navegador (resize,scroll), suscripciones a servicios como WebSockets.(comunicaciones en tiempo real,  como chat(escribiendo...), documentos multiples usurios, videojuegos en linea)(los datos fluyen permanentemente)
 3. Manipular en el DOM luego de renderizar( despues de haber impreso el componenete en el HTML)
 4. Configurar intervalos o temporizadores
 5. Almacenamiento local (localStorage, sessionStorage) todo lo que sea asincrono( que se demora hasta que carga  )
@@ -21,13 +21,14 @@ import {useEffect} from 'react'
 const App = ( )=>{
     // funcion de CallBack + array
     useEffect(()=>{
-        // Codigo que se ejecuta despues de renderizar el objeto
+        // Codigo que se ejecuta despues de renderizar el objeto( lo qquerems q haga)
 
         // Opcional: Funcion de cleanUp / limpieza
         return()=>{
             // Codigo que se ejecutara al desmontar el componente de App desaparezca
+            // cuando app se carge se ejecuta el return 
         }
-    }, [/*Array de dependencias*/] );
+    }, [/*Array de dependencias : cuando ejecutamos el state, y si esta vacio solo la primer vez*/] )
 }
 
 ```

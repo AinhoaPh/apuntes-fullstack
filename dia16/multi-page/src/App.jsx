@@ -1,8 +1,7 @@
 
-import Home from "./pages/Home"
-import AboutUs from "./pages/AboutUs"
-import Products from "./pages/Products"
-import Contact from "./pages/Contact"
+import Personajes from "./pages/Personajes"
+import Lugares from "./pages/Lugares"
+import Episodios from "./pages/Episodios"
 
 
 import {NavSearchParams, NavPathName} from './components/Nav'
@@ -18,7 +17,7 @@ function App() {
 
 
   // ejemplo utilizando PathName
-  const pagina = window.location.pathname.slice(1) || "home";// default home
+  const pagina = window.location.pathname.slice(1) // default home
 
 
   //para darle varlores
@@ -26,10 +25,11 @@ function App() {
 
     // 
     switch(pagina){
-      case"contact":page= <Contact /> ; break
-      case"about":page= <AboutUs /> ; break
-      case"products":page= <Products /> ; break
-      default:page= <Home /> ;
+      case"personajes":page= <Personajes /> ; break
+      case"lugares":page= <Lugares /> ; break
+      case"episodios":page= <Episodios /> ; break
+  
+      default:page= <Personajes /> ;
     }
     
   
@@ -53,7 +53,7 @@ function App() {
 
 
     {/* MENU con Params */}
-      <NavSearchParams />
+      {/* <NavSearchParams /> */}
 
       
       {/* MENU con Path */}
