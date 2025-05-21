@@ -10,18 +10,12 @@ export const NavSearchParams = () => {
         </>
      );
 }
-
-export const NavPathName = ()=>{
+export const NavPathName = () => {
     return (
-        <>
-        
-        <ul className="flex gap-5 bg-white">
-        <li><a href="?page=personajes">Personajes</a></li>
-            <li><a href="?page=lugares">Lugares</a></li>
-            <li><a href="?page=episodios">Episodios</a></li>
-            
-        </ul>
-        
-        </>
-    )
-}
+      <ul className="flex gap-5 bg-white">
+        <li><a href="/personajes">Personajes</a></li>
+        <li><a href="/lugares">Lugares</a></li>
+        <li><a href="/episodios">Episodios</a></li>
+      </ul>
+    );
+  };

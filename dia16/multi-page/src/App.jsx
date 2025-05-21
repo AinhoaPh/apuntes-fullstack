@@ -4,7 +4,7 @@ import Lugares from "./pages/Lugares"
 import Episodios from "./pages/Episodios"
 
 
-import {NavSearchParams, NavPathName} from './components/Nav'
+import { NavPathName, } from './components/Nav'
 
 
 import "./css/App.css"
@@ -23,45 +23,47 @@ function App() {
   //para darle varlores
   let page;
 
-    // 
-    switch(pagina){
-      case"personajes":page= <Personajes /> ; break
-      case"lugares":page= <Lugares /> ; break
-      case"episodios":page= <Episodios /> ; break
-  
-      default:page= <Personajes /> ;
-    }
-    
-  
+  // 
+  switch (pagina) {
+    case "personajes": page = <Personajes />; break
+    case "lugares": page = <Lugares />; break
+    case "episodios": page = <Episodios />; break
 
-  
+
+  }
+
+
+
+
 
   return (
     <>
-    {/* <h2>Multi-Page: {pagina}</h2> */}
-    <main>
-      {page}
-    </main>
+
+      {/* MENU con Path */}
+      <NavPathName />
+      {/* <h2>Multi-Page: {pagina}</h2> */}
+      <main>
+        {page}
+      </main>
 
 
-    {/* Navegacion */}
+      {/* Navegacion */}
 
-    {/* <button onClick={()=>handlePagina("home")}>Home</button>
+      {/* <button onClick={()=>handlePagina("home")}>Home</button>
     <button onClick={()=>handlePagina("contact")}>Contact</button>
     <button onClick={()=>handlePagina("about")}>About Us</button>
     <button onClick={()=>handlePagina("products")}>Products</button> */}
 
 
-    {/* MENU con Params */}
+      {/* MENU con Params */}
       {/* <NavSearchParams /> */}
 
-      
-      {/* MENU con Path */}
-    <NavPathName/>
 
 
 
-  {/* <nav>
+
+
+      {/* <nav>
     {secciones.map((pagina) =>(
      <button> <a 
      key={pagina}
