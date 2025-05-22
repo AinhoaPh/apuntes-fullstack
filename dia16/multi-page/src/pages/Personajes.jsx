@@ -19,7 +19,7 @@ const Personajes = () => {
         type: "",
         gender: "",
         name: ""
-    })
+    });
     // const [estado, setEstado] = useState([])
     // const estados = ["Alive", "Dead", "unknown"];
 
@@ -55,7 +55,10 @@ const Personajes = () => {
             if (type) url += `&type=${type}`;
             if (gender) url += `&gender=${gender}`;
 
+
+
             //Opcion1 TOmas : entender
+
             // let url = `https://rickandmortyapi.com/api/character?page=${pagina}&status=${filter.status}&species=${filter.species}&name=${filter.name}&type={filter.type}&gender=${filter.gender}`;
 
             // const filtroUrl = crearSearchParams(filters);
@@ -63,29 +66,29 @@ const Personajes = () => {
             // const listaAtributos = Object.keys(filters) Para obtener solo los indicies 
             //  let string="";
             // listaAtributos.map((key)=>{
-                // if(filters[key] !==""){
-                //     string+= `&${key}=${filters[key]}`;
-                // }
+            // if(filters[key] !==""){
+            //     string+= `&${key}=${filters[key]}`;
+            // }
             // })
             //     return string;
 
             // }
 
-
-
             // Op 2 Tomas: usar 
 
             // const params = new URLSearchParams();
             // params.append("page", pagina);// agregar un atributo especificio
-     
+
             // // Añadir solo dos filtros que tengan valor
             // Object.entries(filters).forEach(([key,value])=>{
             //     if(value !== ""){
             //         params.append(key, value);
             //     }
             // })
-            
+
             // const response = await fetch (`https://rickandmortyapi.com/api/character?${params.toString()}`)
+
+
 
 
             // Llamada a la API de Rick and Morty
@@ -121,13 +124,20 @@ const Personajes = () => {
         if (!info.next) return;
         setPagina(prev => prev + 1)
     }
-
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFiltro((filtro) => ({
+            ...filtro,
+            [name]: value
+        }));
+    };
     return (
         <>
             <header><h1>Personajes Rick & Morty</h1></header>
 
 
             <main className="main">
+
                 {/* {personajesMock.results[0].name} primer nombre */}
                 {loading && <p>Cargando personajes...</p>}
                 {error && <p style={{ color: 'red' }}>Error: {error}</p>}
@@ -149,13 +159,56 @@ const Personajes = () => {
                             {estado}
                         </label>
                     ))} */}
-                    <button onClick={() => setFiltro({ ...filtro, status: "Alive" })}>Vivos</button>
-                    <button onClick={() => setFiltro({ ...filtro, status: "Dead" })}>Muertos</button>
+
+                    {/* Filtro Status */}
+                    <button style={{ color: "green" }} onClick={() => setFiltro({ ...filtro, status: "Alive" })}>Vivos</button>
+                    <button style={{ color: "red" }} onClick={() => setFiltro({ ...filtro, status: "Dead" })}>Muertos</button>
                     <button onClick={() => setFiltro({ ...filtro, status: "Unknown" })}>Unknown</button>
-                    <button onClick={() => setFiltro({ ...filtro, status: "" })}>Todos</button>
+                    <button onClick={() => setFiltro({ ...filtro, status: "" })}>Status</button>
+
+
+                    {/* Filtro Gender */}
+                    <button onClick={() => setFiltro({ ...filtro, gender: "Female" })}><i className="fas fa-venus" style={{ color: "fuchsia" }}></i></button>
+                    <button onClick={() => setFiltro({ ...filtro, gender: "Male" })}><i className="fas fa-mars" style={{ color: "blue" }}></i></button>
+                    <button onClick={() => setFiltro({ ...filtro, gender: "Unknown" })}><i className="fas fa-genderless" style={{ color: "gray" }}></i></button>
+                    <button onClick={() => setFiltro({ ...filtro, gender: "" })}>Gender</button>
+
+                    {/* Filtro Name */}
+                    <input
+                        type="text"
+                        name="name"
+                        placeholder='Buscar por Nombre...'
+                        value={filtro.name}
+                        onChange={handleChange} />
+
+                    {/* Filtro Species */}
+                    <input
+                        type="text"
+                        name="species"
+                        placeholder='Buscar por Especie...'
+                        value={filtro.species}
+                        onChange={handleChange} />
+
+
+                    <button onClick={() => setFiltro({ ...filtro, species: "Human" })}><i className="fa-solid fa-person" style={{ color: "#D2B48C" }}></i></button>
+                    <button onClick={() => setFiltro({ ...filtro, species: "Alien" })}><i className="fa-brands fa-reddit-alien" style={{ color: "#39FF14" }}></i></button>
+
+
+                    {/* <button onClick={() => setFiltro({ ...filtro, species: "" })}>Species</button> */}
+
+
+                    {/* Filtro Type */}
+                    <input
+                        type="text"
+                        name="type"
+                        placeholder='Buscar por Tipo...'
+                        value={filtro.type}
+                        onChange={handleChange} />
+
+
+
                 </section>
-
-
+                {/* Card */}
                 <div className="container">
                     {listaPersonajes.map((p) => (
                         <CardPersonaje key={p.id} {...p} />
@@ -163,10 +216,13 @@ const Personajes = () => {
                 </div>
 
                 <p>Total de personajes: {info.count}</p>
-                <p>Total de páginas: {info.pages}</p>
+
 
                 <button onClick={handlePrev}>Anterior</button>
+
                 <button onClick={handleNext}>Siguiente</button>
+
+                <p>Total de páginas: {pagina}/{info.pages}</p>
             </main>
         </>
     );
