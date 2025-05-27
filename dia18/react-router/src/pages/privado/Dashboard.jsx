@@ -1,6 +1,6 @@
 const Dashboard = () => {
     return ( <>
-        <h1>Soy Dashboard</h1>
+        <h1>Soy Dashboard (privado)</h1>
     
     </> );
 }

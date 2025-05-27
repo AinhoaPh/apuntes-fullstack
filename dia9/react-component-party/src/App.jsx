@@ -1,4 +1,5 @@
 import './App.css';
+import { AntiSpamButton, AutoFocusInput, ValorPrevio, VideoPlayer } from './components/UseRef';
 import {
   ContadorSimple,
   InterruptorOnOff,
@@ -21,6 +22,10 @@ function App() {
       <GaleriaImg />
       <Adivinanza />
       <TextArea />
+      <AutoFocusInput/>
+      <ValorPrevio/>
+      <AntiSpamButton/>
+      <VideoPlayer/>
     </>
   );
 }

@@ -1,6 +1,7 @@
 import './App.css';
 import { ContadorClicks, EjemploCicloVida, EjPadre, EjTemporizador, LocalStorageSync, ObtenerDatosFetch, Padre, TamañoPantalla } from './components/UseEffect';
 import UserListFetch from './components/UserListFetch';
+import { Ejemplo0Ref, AntiSpamButton, AutoFocusInput, ValorPrevio, VideoPlayer } from './components/UseRef';
 import {
   ContadorSimple,
   InterruptorOnOff,
@@ -23,7 +24,7 @@ function App() {
 
   return (
     <>
-    <h2>Ejemplos de useState</h2>
+      <h2>Ejemplos de useState</h2>
       {/* <ContadorSimple />
       <InterruptorOnOff />
       <EventosInput />
@@ -45,8 +46,13 @@ function App() {
       <LocalStorageSync/>
       <Padre/>
       <EjPadre/> */}
-      <UserListFetch/>
-      
+      <UserListFetch />
+      <Ejemplo0Ref />
+      <AutoFocusInput />
+      <ValorPrevio />
+      <AntiSpamButton />
+      <VideoPlayer />
+
     </>
   );
 }
