@@ -17,7 +17,7 @@ function App() {
     case '/usuarios':
       page = <Usuarios />
       break
-    case '/pokemones':
+    case '/pokemon':
       page = <Pokemon />
       break
     default:
