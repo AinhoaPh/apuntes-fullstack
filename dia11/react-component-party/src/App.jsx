@@ -1,7 +1,7 @@
 import './App.css';
 import { ContadorClicks, EjemploCicloVida, EjPadre, EjTemporizador, LocalStorageSync, ObtenerDatosFetch, Padre, TamañoPantalla } from './components/UseEffect';
 import UserListFetch from './components/UserListFetch';
-import { Ejemplo0Ref, AntiSpamButton, AutoFocusInput, ValorPrevio, VideoPlayer } from './components/UseRef';
+import { Ejemplo0Ref, AntiSpamButton, AutoFocusInput, ValorPrevio, VideoPlayer, ClickOutside, ScrollToBottom } from './components/UseRef';
 import {
   ContadorSimple,
   InterruptorOnOff,
@@ -52,6 +52,8 @@ function App() {
       <ValorPrevio />
       <AntiSpamButton />
       <VideoPlayer />
+      <ClickOutside/>
+      <ScrollToBottom/>
 
     </>
   );

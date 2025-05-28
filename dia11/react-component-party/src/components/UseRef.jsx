@@ -56,7 +56,7 @@ export const AutoFocusInput = () => {
 export function ValorPrevio() {
   const [count, setCount] = useState(0)
 
-  const anterior = useRef()
+  const anterior = useRef();
 
   // se ejecuta despues de renderizar el compoennete 
   useEffect(() => {
@@ -73,6 +73,8 @@ export function ValorPrevio() {
   )
 }
 
+
+
 export function AntiSpamButton() {
     const isCLicked = useRef(false)
 
@@ -82,7 +84,7 @@ export function AntiSpamButton() {
       console.log("Enviando datos")
       setTimeout(()=>{
         isCLicked.current= false
-      },1000)
+      },1000)// envia una vez datos 
     }
   
     return (
@@ -98,7 +100,7 @@ export function VideoPlayer() {
 
     const handlePlay = () => {
         videoRef.current.play();
-    };
+    };// onClick={()=>{videoRef.current.play()} es lo msm
 
     const handlePause = () => {
         videoRef.current.pause();
@@ -114,3 +116,55 @@ export function VideoPlayer() {
     )
 }
 
+export function ClickOutside() {
+  const boxRef = useRef();
+
+  useEffect(() => {
+    const handleClickInside = (e) => {
+      if (!boxRef.current.contains(e.target)) {
+        alert("Has hecho Click fuera!");
+      }
+    };
+
+    window.addEventListener("click", handleClickInside);
+
+    // Función de limpieza corregida
+    return () => window.removeEventListener("click", handleClickInside);
+  }, []);
+
+  return (
+    <div>
+      <h3>Click Outside</h3>
+      <div ref={boxRef} style={{border:"1px solid", padding:20}}>
+        Haz click fuera del elemento 
+      </div>
+    </div>
+  );
+}
+
+export function ScrollToBottom() {
+  const elementoRef = useRef(null);
+  
+  const scrollAbajo = () => {
+    if (elementoRef.current) {  // Añadir verificación
+      elementoRef.current.scrollIntoView({ 
+        behavior: "smooth",
+        block: "center"
+      });
+    }
+  };
+
+  return (
+    <div>
+      <h3>Scroll</h3>
+      <button onClick={scrollAbajo}>Ir al elemento</button>
+      {[...Array(30)].map((_, i) => (
+        <div key={`top-${i}`}>item {i}</div>  // Corregir keys duplicadas
+      ))}
+      <div ref={elementoRef}>Mi elemento</div>
+      {[...Array(60)].map((_, i) => (
+        <div key={`bottom-${i}`}>item {i}</div>  // Corregir keys duplicadas
+      ))}
+    </div>
+  );
+}
