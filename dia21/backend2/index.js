@@ -1,7 +1,12 @@
-const express = require("express");
+import express from 'express';
+import { PORT, DOMAIN } from "./config/config.js";
+
 const app = express();
 
-app.use(express.json()); // Middleware para parsear JSON en el cuerpo de las solicitudes
+// Middleware para parsear JSON en el cuerpo de las solicitudes(se aplica a todas las rutas o auna ruta en especifico)
+app.use(express.json()); 
+
+//Endpoint
 
 const baseDeDatos = [
   { id: 1, nombre: "Juan" },
@@ -20,29 +25,9 @@ app.post("/", (req, res) => {
 
 // Rutas de Tareas
 app.post("/tareas", (req, res) => {
-  try {
-    const { tarea, isCompletada } = req.body;
-    
-    if (!tarea) {
-      return res.status(400).json({
-        error: "La tarea es requerida"
-      });
-    }
-
-    const nuevaTarea = {
-      tarea,
-      isCompletada: isCompletada || false
-    };
-
-    res.status(201).json({
-      mensaje: "Tarea creada exitosamente",
-      tarea: nuevaTarea
-    });
-  } catch (error) {
-    res.status(500).json({
-      error: "Error al procesar la tarea"
-    });
-  }
+  console
+  const { tarea, isCompletada } = req.body;
+  res.send(`Tarea recibida:${tarea}`);
 });
 
 // recibir una tarea nueva con POST
@@ -53,12 +38,12 @@ app.get("/usuarios", (req, res) => {
 });
 
 // Obtener un usuario por ID y nombre
-app.get("/usuarios/:id/:nombre", (req, res) => {
-  const idUsuario = parseInt(req.params.id); // Convertir el ID a número
-  const nombreUsuario = req.params.nombre;
+app.get("/usuarios/:uid", (req, res) => {
+  const {uid} = req.params; // Convertir el ID a número
+  console.log(`Id de usuarios : ${uid}`)
 
   const usuario = baseDeDatos.find(
-    (user) => user.id === idUsuario && user.nombre === nombreUsuario
+    (user) => user.id === uid && user.nombre === nombreUsuario
   );
 
   if (!usuario) {
@@ -70,11 +55,11 @@ app.get("/usuarios/:id/:nombre", (req, res) => {
 
 // Eliminar un usuario por ID y nombre
 app.delete("/usuarios/:id/:nombre", (req, res) => {
-  const idUsuario = parseInt(req.params.id); // Convertir el ID a número
+  const uid = parseInt(req.params.id); // Convertir el ID a número
   const nombreUsuario = req.params.nombre;
 
   const index = baseDeDatos.findIndex(
-    (user) => user.id === idUsuario && user.nombre === nombreUsuario
+    (user) => user.id === uid && user.nombre === nombreUsuario
   );
 
   if (index === -1) {
@@ -92,8 +77,56 @@ app.put("/usuarios", (req, res) => {
   res.send("Actualización de usuarios");
 });
 
+fetch('https://cei.es/usuarios/1?accion=changePassword',{
+  method:"PATCH",
+  headers: {
+    'Content-Type': 'application/json',
+    'User-Agent': 'Mozilla/ 5.0'
+  },
+  body: JSON.stringify({
+    mail: "juan@cei.es",
+    oldPass: "1234",
+    newPass: "12345"
+  })
+});
+
+app.patch("/usuarios/:uid", (req, res) => { 
+  const uid = req.params.uid;
+  const {accion} = req.query;
+  const { mail, oldPass, newPass } = req.body;
+
+  console.log(req.headers);
+  console.log(`El user agent es : ${req.headers['user-agent']}`);
+  console.log(`Id de usuario:${uid}`);
+  console.log(`Acción a ejecutar: ${accion}`);
+  console.log(`El email es: ${mail}`);
+
+  res.status(404).json(req.body)
+  // Aquí podrías agregar lógica para actualizar el usuario en la base de datos
+  res.send("Accediste a la ruta de cambiar contraseña");
+});
+
+//Rsponse en JSON
+app.get("/productos/:id", (req, res) => {
+res.status(200).res.json({producto: "aspiradora", precio:1000})
+});
+//  Response d error 404
+app.get("/error", (req, res) => {
+  res.status(404).send("Página no encontrada");
+});
+
+//Redireccion 
+app.get("/redireccion", (req, res) => {
+  res.status(300).redirect("https://google.com");
+});
+
+// setHeaders
+app.get("/html", (req, res) => {
+  res.setHeader("Content-Type", "text/html");
+  res.send("<h1>Este es un mensaje en HTML</h1>");
+})
+
 // Iniciar el servidor
-const PORT = 3000;
 app.listen(PORT, () => {
-  console.log(`Servidor corriendo en http://localhost:${PORT}`);
+  console.log(`Servidor corriendo en ${DOMAIN}:${PORT}`);
 });

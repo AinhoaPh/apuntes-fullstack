@@ -1,0 +1,8 @@
+### Probar a crear nueva tarea 
+POST http://localhost:3000/api/v1/tareas
+Content-Type: application/json
+
+{
+    "texto": "Tarea numero 3",
+    "isCompletada": false
+}

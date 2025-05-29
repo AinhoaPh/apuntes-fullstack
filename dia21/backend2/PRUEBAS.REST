@@ -1,11 +1,20 @@
-### Página principal de nuestra REST API
+### First test the server is running
 GET http://localhost:3000
 
-### Obtener un usuario por ID y nombre
+### Then test user endpoint with proper parameters
 GET http://localhost:3000/usuarios/25/Pedro
 
 ### Eliminar un usuario por ID y nombre
 DELETE http://localhost:3000/usuarios/25/Pedro
+
+### Actualizar clave de usuario
+
+PATCH http://localhost:3000/usuarios/25/Pedro
+Content-Type: application/json
+
+{
+    "clave": "nuevaClave123"
+}
 
 ### Actualizar un usuario
 PUT http://localhost:3000/usuarios
@@ -25,4 +34,5 @@ Content-Type: application/json
     "tarea": "Hacer el contenido",
     "isCompletada": false
 }
+
 

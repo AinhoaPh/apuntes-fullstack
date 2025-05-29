@@ -55,13 +55,20 @@ Aclaraciones:
 ## Para probar distintos request usarems Rest CLients 
 
 - Entre los mas conocidos tenemos a el mas usado: 
-`Postman`,`Insomnia`, `Postman`, `Thunder Client`, `cURL`,`REST Client`
+`Postman`,`Insomnia`, `Postman`, `Thunder Client`->(localhost...), `cURL`,`REST Client`-> archivo de pruebas (### ...)
 
 ## REquest 
 
 El objeto req contiene toda la info de la peticion HTTP proveniente del frontEnd. Algunos de los atributos mas comunes son:
-- req. params:Parametro de la URL -> /users/:nombre
+- req. params:Parametro de la URL -> /users/:nombre del objeto
+                                    const nombre=req.params.nombre
+   del objeto requst me devuelve el nombre
 - req. query: SearchParams / Parametros de busqueda los que vienen luego del interrogadr  -> ?edad=33&distancia= 20
+si quiero leer los valores de las variables ?.....&....
+
+app.get("productos/:categoria",(req,res)=>{}) las variables las manda el usuraio y para leerlo con req.query 
+
+const {dist}= req.query
 - req.body:  Cuerpo de la peticion ( para POST, PUT, PATCH etc)
 - req.headers: Cabecera de la peticion 
 
@@ -144,3 +151,7 @@ app.listen(PORT, () => {
   "start": "node index.js"
 }
 ```
+
+# Crear backend3-tareas
+
+- Crear nuevo proyecto para ocmparrir ontenido estaticp
