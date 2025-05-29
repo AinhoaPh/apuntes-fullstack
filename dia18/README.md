@@ -213,7 +213,7 @@ Nuestro codigo va de una seccion a otra, Cuano queremos que de manera programati
  - useRef: Maneja referencias a os ele,emtos del DOM y a otrros que no son parte de nuetro componenete 
 
  ## Hook useRef 
- Conserva la informacion entre renderizados al igual que State pero se diferencia en que no provoca un rerenderizado uando lo actualizamos 
+ Conserva la informacion entre renderizados al igual que State pero se diferencia en que no provoca un rerenderizado cuando lo actualizamos 
 
  > Se usa `const valor = useRef();`
  > useRef devuelve un OBJETO y su propiedad se lee "valor.current"{current:value}
@@ -266,3 +266,23 @@ ej3: Deshabiitar clicks rapidos con un bloqueo temporal maxi 1 click
 Videoplayer:
 COntrolar un video con play/pausa
 `https://www.w3schools.com/html/mov_bbb.mp4`
+
+ej5: Detectar un click fuera de un componente craer un alert cuando haga click fuera 
+
+```jsx
+export function ClickOutside() {
+¡
+    return (
+      <>
+      <h3>CLick Outside</h3>
+      <div style={{border:"1px solid", padding:20}}>
+      Haz click fuera del elemento 
+      </div>
+   
+        <button onClick={handlePause}>Pausa</button>
+      </>
+    )
+}
+
+
+```

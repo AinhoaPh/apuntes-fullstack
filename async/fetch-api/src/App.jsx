@@ -26,7 +26,7 @@ function App() {
 
   return (
     <>
-      <nav>
+      <nav className="nav__list">
         <a href="/productos">Productos</a> | 
         <a href="/usuarios">Usuarios</a> | 
         <a href="/pokemon">Pokemon</a>

@@ -33,7 +33,7 @@ const Productos = () => {
   }, []);
 
   return (
-    <main>
+    <main className="main">
       <h1>Lista de productos</h1>
 
       {loading && <p>Cargando...</p>}

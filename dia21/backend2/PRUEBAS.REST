@@ -1,0 +1,28 @@
+### Página principal de nuestra REST API
+GET http://localhost:3000
+
+### Obtener un usuario por ID y nombre
+GET http://localhost:3000/usuarios/25/Pedro
+
+### Eliminar un usuario por ID y nombre
+DELETE http://localhost:3000/usuarios/25/Pedro
+
+### Actualizar un usuario
+PUT http://localhost:3000/usuarios
+Content-Type: application/json
+
+{
+    "id": 25,
+    "nombre": "Pedro",
+    "nuevoNombre": "Pedro Actualizado"
+}
+
+### Crear una nueva tarea (ruta no implementada en el servidor)
+POST http://localhost:3000/tareas
+Content-Type: application/json
+
+{
+    "tarea": "Hacer el contenido",
+    "isCompletada": false
+}
+

@@ -117,54 +117,64 @@ export function VideoPlayer() {
 }
 
 export function ClickOutside() {
-  const boxRef = useRef();
+  // miObjeto.contains(e.target);
+  const boxRef= useRef();
 
-  useEffect(() => {
-    const handleClickInside = (e) => {
-      if (!boxRef.current.contains(e.target)) {
-        alert("Has hecho Click fuera!");
+  useEffect(()=>{
+    // const handleCLickOutside = (e)=>{
+    //   if(!boxRef.current.contains(e.target)){
+    //     alert("Has hecho Click fuera!")
+    //   }
+    // }
+    const handleCLickInside = (e)=>{
+      if(boxRef.current.contains(e.target)){
+        alert("Has hecho Click fuera!")
       }
-    };
-
-    window.addEventListener("click", handleClickInside);
-
-    // Función de limpieza corregida
-    return () => window.removeEventListener("click", handleClickInside);
-  }, []);
-
-  return (
-    <div>
-      <h3>Click Outside</h3>
-      <div ref={boxRef} style={{border:"1px solid", padding:20}}>
-        Haz click fuera del elemento 
-      </div>
-    </div>
-  );
-}
-
-export function ScrollToBottom() {
-  const elementoRef = useRef(null);
-  
-  const scrollAbajo = () => {
-    if (elementoRef.current) {  // Añadir verificación
-      elementoRef.current.scrollIntoView({ 
-        behavior: "smooth",
-        block: "center"
-      });
     }
-  };
 
-  return (
-    <div>
-      <h3>Scroll</h3>
-      <button onClick={scrollAbajo}>Ir al elemento</button>
-      {[...Array(30)].map((_, i) => (
-        <div key={`top-${i}`}>item {i}</div>  // Corregir keys duplicadas
-      ))}
-      <div ref={elementoRef}>Mi elemento</div>
-      {[...Array(60)].map((_, i) => (
-        <div key={`bottom-${i}`}>item {i}</div>  // Corregir keys duplicadas
-      ))}
-    </div>
-  );
+        window.addEventListener("click", handleCLickInside)
+
+        // FUncion de limpieza
+        return()=> window.removeEventListener("click", handleCLickInside)
+  },[])
+      return (
+        <>
+        <div>
+        <h3>CLick Outside</h3>
+        <div ref={boxRef} style={{border:"1px solid", padding:20}}>
+        Haz click fuera del elemento 
+        </div>
+     
+         
+          </div>
+        </>
+      )
+  }
+  
+  export function ScrollToBottom() {
+    const elementoRef = useRef(null);
+    
+    const scrollAbajo = () => {
+        elementoRef.current.scrollIntoView({ 
+            behavior: "smooth",  // hace el scroll suave
+            block: "center"      // centra el elemento en la ventana
+        });
+    }
+
+    return (
+        <>
+        <div>
+            <h3>Scroll</h3>
+            <button onClick={scrollAbajo}>Ir al elemento</button>
+            {[...Array(30)].map((_, i) => (
+                <div key={i}>item {i}</div>
+            ))}
+            <div ref={elementoRef}>Mi elemento</div>
+            {[...Array(60)].map((_, i) => (
+                <div key={i}>item {i}</div>
+            ))}
+
+        </div>
+        </>
+    );
 }
