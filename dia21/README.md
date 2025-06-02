@@ -152,6 +152,31 @@ app.listen(PORT, () => {
 }
 ```
 
+# Codigo de estado HTTP
+
+ Rango de 200-299: Peticion exitosa
+ Rango de 300-399: Redireccion
+Rango de 400-499: Errores que ha tenido la peticion por parte del cliente
+Rango 500-599: Error en la consulta del servidor
+
+200 OK          ->
+201 Created     -> Registro creado/resource 
+204 NO content  -> REspuesta vacia algunos lo utilizan cuando eliminan un registro
+
+400 Bad Request -> Peticion invalilda por el cliente(com decir que cree una tarea sin darle la tarea)
+401 UNAUTHORIZED->No esta autorizado(queremos hacer algo pero aun no inicie sesion seria , token invalido)
+403 FORBIDDEN   ->No tiene permiso(el usuario si inicia sesion peron o tiene los permisos suficientes)
+404 NOT FOUND   -> No se encontro el rgistro o el archivo
+
+500 INTERNAL SERVER ERROR -> Error interni(fallo inesperado ene l servidor)
+
+res.status(numero).json
+
+
 # Crear backend3-tareas
 
 - Crear nuevo proyecto para ocmparrir ontenido estaticp
+
+# Para cargar una pagina statica 
+
+app.use("/imgs", express.static("public/imgs")); 

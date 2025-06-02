@@ -1,0 +1,1 @@
+import { profesores } from "../data/profesores";
