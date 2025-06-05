@@ -87,10 +87,9 @@ app.get("/usuarios",auth,  (req,res, next)=>{
 ```
 
 - `admin.middleware.js`=> verificar si el usuario tiene perfil de admin
--`logger.middleware.js`=> deja un resgistro de todas las peticiones HTTP para monitorizar
+- `logger.middleware.js`=> deja un resgistro de todas las peticiones HTTP para monitorizar
 - `errorHandler.middleware.js`=> manejar errores de las peticiones
--`validation.middleware.js`=> valida los datos de request antes de procesarlos( si todo esta bien escrito etc..
-)
+- `validation.middleware.js`=> valida los datos de request antes de procesarlos( si todo esta bien escrito etc..)
 - `rateLimiter.middleware.js`=> limitar el numero de consultas en X tiempo ( consultas cada X tiempo etc)
 - `cors.middleware.js`=> Funcion personalizada de permisos de CORS el cors() vacio permite  todo
 - `upload.middleware.js`=> sube el archivo al servidor y lo procesa (multer)
@@ -353,6 +352,10 @@ app.listen(PORT, () => {
 });
 
 ```
+autotizacion-> permisos
+autentnti-> si inicie sesion con mi user
+
+
 
 Ej 1: Middleware  de UUID `middleware/uniqueid.middleware.js`
 
@@ -362,6 +365,8 @@ Se tiene que aplicar a todas las rutas
 Ej 2: Middleware Authetication 
 crea un midleware qe cerifique si el user esta identificado, asume qu el user esta autenticado con propiedad"user" en el objeto req
 solo se aplica a "/alumnos"
+
+
 
 Ej 3: Middleware Admin
 un Midd que veriificque si el user es admin y aasume qu el user esta autenticado con propiedad role con el valor "admin" esta ruta solo se aplica a POST

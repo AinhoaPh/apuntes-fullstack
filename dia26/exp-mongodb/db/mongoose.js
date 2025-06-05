@@ -6,7 +6,8 @@ import { DB_USER,
 
 export const connectDB =  async () => {
     const url =`mongodb+srv://${DB_USER}:${DB_PASS}@${CLUSTER}/${DATABASE}`;// copiar link de conexión de Mongodb Atlas, en la pestaña de connect, luego en connect your application, copiar el link y pegarlo aqui, luego cambiar el usuario y contraseña por los que creamos en la base de datos
-    // Ejemplo de URL de conexión: "mongodb+srv://${DB_USER}:${DB_PASS@${CLUSTER}/${DATABASE}"mongodb+srv://AinhoaCei:<db_password>@cei.sovuqad.mongodb.net/?retryWrites=true&w=majority&appName=cei
+    // Ejemplo de URL de conexión: "mongodb+srv://${DB_USER}:${DB_PASS@${CLUSTER}/${DATABASE}"
+    //                              mongodb+srv://AinhoaCei:<db_password>@cei.sovuqad.mongodb.net/?retryWrites=true&w=majority&appName=cei
 
     try {
         await mongoose.connect(url);
