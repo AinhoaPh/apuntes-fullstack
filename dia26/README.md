@@ -4,7 +4,7 @@ Sistema par almacenar informacion de manera organizada
 
 - Organiza la info
 - Acceder a la info de manera eficiente 
-- Intgridad de la info aplicando reglas y restricciones(el dato no se corrompe)
+- Integridad de la info aplicando reglas y restricciones(el dato no se corrompe)
 - Seguridad mediante roles y permisos
 - Escalabilidad de la info para soportar crecimiento
 
@@ -35,17 +35,18 @@ Las NoSQL se prefieren en casos que requeiran alto rendimiento y gran escalabili
 |--------------------|---------------------|
 | Tablas             | Coleccions          |
 | Fila/Registrp      | Documentos          |
-| Columna            | Campos              |
+| Columna            | Campos (caract)     |
 | Esquema Rigido     | Esquema Felxible    |
 | JOIN por relacions | Referencia Emdebida |
+
 
 # Mongo DB
 
 - Es mas flexible y ademas no requiere que complete todos los datos.
 - No tenemos que crear un ID se crea automaticamnete
 - ID incluye info del documento( fecha en la que se creo..)
-- Las colecciones son Arrays 
-- Los documentos son objetos
+- Las colecciones son Arrays (listas de docuemntos)
+- Los documentos son objetos que posseen multiples campos
 - Tienen un esquema similar a los objetos JSON pero en realidad son BSON -> Binary JSon
 
 
@@ -53,5 +54,7 @@ Se puede utilizar desde:
 -  la terminal 
 - Mongo Shell/Mongosh(terminales de mongo)
 - Mongo DB Compass GUI (Interfaz grafica ver base de datos)
-- A traves de un driver de mongoDB( interactuar con la base de datos)
+- Mongoose: es una biblioteca de modelado de objetos para MongoDB
+
+
 

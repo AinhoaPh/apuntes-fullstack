@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { getUsuarios } from "../controllers/usuarios.controller";
+import { createUsuario, getUsuarios, getUsuariosById, } from "../controllers/usuarios.controller.js";
 
 
 
@@ -10,13 +10,18 @@ export const router = Router();
 //rutas de tareas
 router.get("/public")
 
+
+
 // obtener las tareas
  router.get("/usuarios", getUsuarios);
+
+
 // tarea especifica por id
 
-// router.get("/tareas/:id", getTareaById)
+router.get("/usuario/:uid", getUsuariosById);
+
 // // Crear una nueva tarea
-// router.post("/tareas", authMiddleware,validateMiddleware,  adminMiddleware, createTarea )
+ router.post("/usuarios", createUsuario )
 
 // // actualizar
 // router.put("/tareas/:id", updateTarea );
