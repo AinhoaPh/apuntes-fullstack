@@ -1,0 +1,11 @@
+### Probar usuarios
+
+GET http://localhost:3000/api/v1/usuarios
+
+### Probar un usuario
+
+GET http://localhost:3000/api/v1/usuario/68418b9bec63c8c69435bd2d
+
+### Probar crear un usuario
+
+POST http://localhost:3000/api/v1/usuarios
