@@ -18,7 +18,8 @@ const options = {
 const usuarioSchema = new mongoose.Schema({
     name: String,
     username: String,
-    email: String
+    email: String,
+    productos: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Usuario' }] // Relación con el modelo Producto
 }, options);
 
 // Exportamos el modelo para poder usarlo en otras partes de la aplicación creamos un modelo llamado Usuario

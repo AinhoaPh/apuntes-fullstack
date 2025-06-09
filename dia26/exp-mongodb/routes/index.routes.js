@@ -1,30 +1,35 @@
 import { Router } from "express";
-import { createUsuario, getUsuarios, getUsuariosById, } from "../controllers/usuarios.controller.js";
+import {
+  createUsuario,
+  getUsuarios,
+  getUsuariosById,
+  updateUser,
+  deleteUsuario
+} from "../controllers/usuarios.controller.js";
 
-
-
-// Importar el array de tareas desde un archivo de datos para ser usado en index.js
 export const router = Router();
 
+// Ruta pública de prueba
+router.get("/public", (req, res) => {
+  res.send("Ruta pública funcionando correctamente");
+});
 
-//rutas de tareas
-router.get("/public")
+// Rutas CRUD de usuarios
+
+// Obtener todos los usuarios
+router.get("/usuarios", getUsuarios);
+
+// Obtener un usuario por ID
+router.get("/usuarios/:uid", getUsuariosById);
+
+// Crear un nuevo usuario
+router.post("/usuarios", createUsuario);
+
+// Actualizar usuario por ID
+router.put("/usuarios/:uid", updateUser);
+
+// Eliminar usuario por ID
+router.delete("/usuarios/:uid", deleteUsuario);
 
 
 
-// obtener las tareas
- router.get("/usuarios", getUsuarios);
-
-
-// tarea especifica por id
-
-router.get("/usuario/:uid", getUsuariosById);
-
-// // Crear una nueva tarea
- router.post("/usuarios", createUsuario )
-
-// // actualizar
-// router.put("/tareas/:id", updateTarea );
-
-// // Eliminar una tarea por id
-// router.delete("/tareas/:id", deleteTarea);
