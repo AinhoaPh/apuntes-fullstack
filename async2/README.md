@@ -2,7 +2,7 @@
 
 Crear un .env y .env.example 
 
-.env: informacion sensible
+.env: informacion sensible. ambinte 
  creamos el usuario contraseña mas las variables del entorno.(url) + config + el puerto + el dominio( localhost en desarrollo y dominio real pag subida)
 
 .env exam. los ejemplos

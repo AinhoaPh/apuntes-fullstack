@@ -88,7 +88,7 @@ Modelo.deleteMany({campo:valor})
 await Usuario.find({edad:{$gt:18}})
 
 
-await Usuario.updateMany({edad:{$exists:false}},{$set:{"edad:17"}})
+await Usuario.updateMany({edad:{$exists:false}},{$set:{"edad:17"}})// 
 /*
 $eq: igual
 $ne: no es igual
@@ -195,7 +195,7 @@ const userSchema = new mongoose.Schema({
 Nos permite "poblar" las referecias con los datos reales 
 
 ```js
-// poblar una referencia simple
+// poblar una referencia simple carga la info y ademas el autor 
 const productos = await Productos.find().populate("owner");
 
 

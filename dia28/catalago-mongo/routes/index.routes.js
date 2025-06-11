@@ -16,7 +16,8 @@ router.get("/public", (req, res) => {
 
 // Rutas CRUD de usuarios
 
-// Obtener todos los usuarios
+// Obtener todos los usuarios 
+
 router.get("/usuarios", getUsuarios);
 
 // Obtener un usuario por ID
@@ -45,3 +46,5 @@ router.post("/productos", createProducto);
 
 // // Eliminar usuario por ID
 // router.delete("/productos/:uid", deleteProducto);
+
+

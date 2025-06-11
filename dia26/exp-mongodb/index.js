@@ -1,78 +1,71 @@
 import express from 'express';
 import { PORT, DOMAIN } from "./config/config.js";
-import cors from 'cors';// Middleware para permitir solicitudes desde otros dominios
+import cors from 'cors';
 import { connectDB } from './db/mongoose.js';
 import { router } from './routes/index.routes.js';
 import { errorHandler, notFoundHandler } from './middleware/error.middleware.js';
-
 
 const app = express();
 
 // funciones intermedias para modificar req,res
 
 app.use(cors()); // Middleware para permitir solicitudes desde otros dominios (CORS)
-
 app.use(express.json()); // Middleware para parsear JSON en el cuerpo de las solicitudes funcion que se ejecuta en un cicl de vida d nuetsr consulta y podria modificar el req o el res.(procesa cualquier body que este en JSON )
-
 app.use(express.urlencoded({ extended: true })); // Middleware para parsear datos de formularios (application/x-www-form-urlencoded)
 
-connectDB(); // Conectar a la base de datos MongoDB
-
-app.use("/", express.static("public"));
-// app.use("/", express.static("public/landing")); // Middleware para servir archivos estáticos desde la carpeta "public"
+app.use("/", express.static("public")); // Middleware para servir archivos estáticos desde la carpeta "public"
 //app-use("/endpoint", express.static("carpeta-de-mis-archivos-estaticos")); // Middleware para servir archivos estáticos desde una carpeta específica
 
+// Servir archivos estáticos desde la carpeta "public/landing"
+// app.use("/landing", express.static("public/landing")); 
+app.use("/landing")// // Middleware de autenticación para la ruta /landing
 
+//http://localhost:3000/imgs/tareas.jpg
+//app.use("/imgs", express.static("public/imgs")); // traera este archivo
 
 app.get("/", (req, res) => {
-  res.status(200).send({msg:"Bienvenido a nuestra REST API con MongoDB"});
+  res.status(200).send(`Bienvenido a nuestra REST API entra <a href="${DOMAIN}:${PORT}/landing">Landing</a>`);
+});
+app.get("/verlogs", (req, res) => {
+  res.json(logs)
 });
 
-// app.get("/", (req, res) => {
-//   res.status(200).send(`Bienvenido a nuestra REST API con MongoDBentra <a href="${DOMAIN}:${PORT}/landing">Landing</a>`);
-// });
-
-
-
+// Importar las rutas desde el archivo de routes utiliza nuestro router para tdds los endpoint que coinciden api/v1/...
+app.use("/api/v1", router);
 
 app.get("/ver.error", (req, res, next) => {
-  //opcion1;
-  //const error = new Error("Este es un error de prueba");
-  //error.status = 500; // Puedes establecer un código de estado personalizado si lo deseas
-  //next(error); // Pasar el error al middleware de manejo de errores
-
-  //opcion2:
   try {
-    console.log("Intentando ejecutar código que puede fallar");
-    let num = 3;
+    let num = 3; // Usar let en lugar de const
     num = 2;
-
-    res.send("Probando enviar mensaje de error")
+    res.send("Operación completada");
   } catch (error) {
-    next(error); // Pasar el error al middleware de manejo de errores
+    next(error);
   }
-
-}
-);
-app.get("/error2", (req, res, next) => {
-  // Simular un error
-  const error = new Error("Este es otro error de prueba");
-  error.status(444);
-  next(error); // Pasar el error al middleware de manejo de errores
 });
 
-
-// ruta aplica a todo
-app.use("/api/v1", router)
+app.get("/error2", (req, res, next) => {
+  const error = new Error("Este es otro error de prueba");
+  error.status = 444; // Es una propiedad, no un método
+  next(error);
+});
 
 // ruta comodin en caso de no haber entrado a ninguna de las anteriores
 app.use(notFoundHandler);
 
+app.use(errorHandler); // Middleware para manejar errores tienen "err" como primer parametro app use sin ruta aplicata a todo
 
+// Inicialización asíncrona
+const initServer = async () => {
+  try {
+    await connectDB(); // Esperar a que la conexión se establezca
 
-app.use(errorHandler); // Middleware para manejar errores tienen "err" como primer parametro app use sin 
+    app.listen(PORT, () => {
+      console.log(`Servidor corriendo en ${DOMAIN}:${PORT}`);
+    });
+  } catch (error) {
+    console.error('Error al inicializar:', error);
+    process.exit(1);
+  }
+};
 
-// Iniciar el servidor
-app.listen(PORT, () => {
-  console.log(`Servidor corriendo en ${DOMAIN}:${PORT}`);
-});
+initServer(); // Iniciar el servidor
