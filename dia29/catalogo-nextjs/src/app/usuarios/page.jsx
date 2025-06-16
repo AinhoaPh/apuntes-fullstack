@@ -2,6 +2,7 @@ import { Card } from "@/components/ui/Card";
 import { getUsuarios } from "@/lib/db/usuarios";
 
 
+
 const Usuarios = async () => {
     const listaUsuarios = await getUsuarios()
     return ( 

@@ -3,6 +3,7 @@ import { getUsuarios2 } from "@/server/usuarios2";
 import { crearUsuario } from "@/server/usuarios2";
 
 
+
 const Usuarios = async () => {
     const respuesta = await getUsuarios2()
     const listaUsuarios = respuesta.data;//
