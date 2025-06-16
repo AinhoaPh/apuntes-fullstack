@@ -1,6 +1,6 @@
 "use server"
 import {conectaDB} from "@/lib/db/mongodb";
-import Usuario from "@/lib/db/models/usuario";
+import Usuario from "@/lib/usuario";
 
 // reavlidar la ruta para atualizar la pag que modifique
 import { revalidatePath } from "next/cache";
@@ -56,7 +56,7 @@ revalidatePath("/"); // revalidar la ruta para atualizar la pag que modifique
           status:"Ok"
       }
 
-      
+
 
   }catch (error) {
       console.error("Error al conectar a la base de datos:", error);

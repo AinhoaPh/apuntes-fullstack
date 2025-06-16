@@ -1,0 +1,16 @@
+@dominio=http://localhost:3001
+
+@uid="1234"
+
+@token="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODUwN2JiOGQ2ZGFiY2MxMzFlMTJlMWQiLCJuYW1lIjoiQkx1ZSIsImlhdCI6MTc1MDEwNTAxNiwiZXhwIjoxNzUwMTEyMjE2fQ.otxUdUPlOpt8I4nEGOsJBrx4vfiUlb9NUt6sl4mQ3Lo" 
+
+### REGISTRAR NUEVO USUARIO
+
+POST {{dominio}}/api/v1/auth/register
+Content-Type: application/json
+
+{
+    "name": "BLue",
+    "email":"blue@gmail.com",
+    "password": "B7u3!"
+}
