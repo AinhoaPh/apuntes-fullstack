@@ -1,28 +1,20 @@
+ // server/usuarios.js
+import express from "express";
+import { Usuario } from "../models/Usuario.js"; // tu modelo Mongoose
+const router = express.Router();
 
-export const getUsuarios = async (req, res, next) => {
-    try{
-  
-      // traer los datos de la coleccion
-      const users = await Usuario.find().populate("productos");
-  
-      console.log("Obteniendo todos los usuarios");
-      //OPcion1
-      // res.status(200).json({
-      //     msg:"Usuarios obtenidos",
-      //     data: users
-      // })
-  
-      //Opcion2
-      ResponseAPI.msg="Usuarios obtenidos";
-      ResponseAPI.data = users;
-      res.status(200).json(ResponseAPI)
-    }catch(e){
-      next(e); 
-    }
-    
+// GET /api/v1/usuarios
+router.get("/", async (req, res) => {
+  try {
+    const listaUsuarios = await Usuario.find(); // trae todos los usuarios
+    res.status(200).json({
+      msg: "Lista de usuarios",
+      data: listaUsuarios
+    });
+  } catch (error) {
+    console.error("Error al obtener usuarios:", error);
+    res.status(500).json({ msg: "Error del servidor" });
   }
-// como traer usuarios de mi base de datos https://localhost:3001/api/posts
-export const getPosts = async () => {
-    const response = await fetch('https://localhost:3001/api/posts');
-    return response.json();
-}  
+});
+
+export default router;

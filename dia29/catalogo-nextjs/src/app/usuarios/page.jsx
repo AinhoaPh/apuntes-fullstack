@@ -1,17 +1,17 @@
 import { Card } from "@/components/ui/Card";
-import { getUsers } from "@/services/users";
+import { getUsuarios } from "@/lib/db/usuarios";
 
 
 const Usuarios = async () => {
-    const listaUsuarios = getUsers()
+    const listaUsuarios = await getUsuarios()
     return ( 
         <div>
-        <h1>Soy Usuarios</h1>
-        <ul>
-        {listaUsuarios.map(user => (
+        <h1>Lista de usuarios (MONGO DB - EXPRESS)</h1>
+        <ul className="grid grid-cols-3 p-2 gap-2">
+        {listaUsuarios.map((user,index) => (
             <li key={index}>
-                <Card title={user.name}  >
-                    {user.email}
+                <Card title={user.name || "sin nombre"} >
+                    {user.email || "sin email"} 
                    </Card> 
             </li>
         ))}

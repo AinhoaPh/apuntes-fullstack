@@ -75,3 +75,30 @@ const user = process.env.DB_USER // lo devuelve vacio
 - crear entorno (.env y.env.example) con NEXT_PUBLIC_API_URL
 - Crear ruta de Usuarios y traer y listar  en tarjetas usuarios nuestro REST API + Mongo DB
 
+- Crear un formulario para crear nuevos usuarios 
+
+- Implementar 
+
+
+# Estils con CSS modules
+
+Estilos que se aplican solo a un componente 
+
+```css
+/* app.module.css
+ CSS exclusivo para ek componenete que lo importe */
+
+
+```
+
+```js
+
+import styles from './app.module.css'
+
+const Componente = () =>{
+    return (
+        // nos devuelve una clasepersonalizada 
+        <p className={style.red}>Mi texto </p>
+    )
+}
+```

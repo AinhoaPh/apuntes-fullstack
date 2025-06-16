@@ -17,6 +17,7 @@ export const getJsonPostsConError = async ()=>{
 
 // traer un post especifico
 export const getJsonSinglePost = async (id)=>{
+    
     const response = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`);
     return response.json();
 }
@@ -32,7 +33,3 @@ export const crearPost = async (formData) => {
 
 }
 // como traer usuarios de mi base de datos https://localhost:3001/api/posts
-export const getPosts = async () => {
-    const response = await fetch('https://localhost:3001/api/posts');
-    return response.json();
-}

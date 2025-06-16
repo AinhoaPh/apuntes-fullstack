@@ -9,6 +9,7 @@ const app = express();
 
 // funciones intermedias para modificar req,res
 
+
 app.use(cors()); // Middleware para permitir solicitudes desde otros dominios (CORS)
 app.use(express.json()); // Middleware para parsear JSON en el cuerpo de las solicitudes funcion que se ejecuta en un cicl de vida d nuetsr consulta y podria modificar el req o el res.(procesa cualquier body que este en JSON )
 app.use(express.urlencoded({ extended: true })); // Middleware para parsear datos de formularios (application/x-www-form-urlencoded)
@@ -17,8 +18,8 @@ app.use("/", express.static("public")); // Middleware para servir archivos está
 //app-use("/endpoint", express.static("carpeta-de-mis-archivos-estaticos")); // Middleware para servir archivos estáticos desde una carpeta específica
 
 // Servir archivos estáticos desde la carpeta "public/landing"
-// app.use("/landing", express.static("public/landing")); 
-app.use("/landing")// // Middleware de autenticación para la ruta /landing
+//app.use("/landing", express.static("public/landing")); 
+//app.use("/landing")// // Middleware de autenticación para la ruta /landing
 
 //http://localhost:3000/imgs/tareas.jpg
 //app.use("/imgs", express.static("public/imgs")); // traera este archivo

@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { getJsonPosts, crearPost } from "@/server/posts";
 import Link from "next/link";
-i
+
 
 const Blog = async () => {
     // Obtener los posts del servidor
