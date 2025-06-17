@@ -37,7 +37,7 @@ import { JWT_SECRET } from "../config/config.js";
             // Crear un token JWT
 
             const token = jwt.sign({
-                userId: newUser._id,// mongoose devuelve un id con _
+                userId: newUser._id,// mongoose devuelve un id con "_"
                 name: newUser.name
             }, 
                 JWT_SECRET, // clave secreta del JWT

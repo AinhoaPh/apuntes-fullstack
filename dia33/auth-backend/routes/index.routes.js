@@ -16,6 +16,11 @@ router.post("/auth/login", loginUser)
 router.post("/auth/register", registerUser)
 
 // pruebas para traer datos 
+router.get("/auth/register", (req, res) => {
+  res.send("Ruta de registro funcionando.");
+});
+
+
 router.get("/auth/me", getCurrentUser)
 router.get("/protected", (req, res) => {
   res.json({
