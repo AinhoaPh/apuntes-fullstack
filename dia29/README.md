@@ -102,3 +102,6 @@ const Componente = () =>{
     )
 }
 ```
+
+# Paginas especiales 
+

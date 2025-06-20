@@ -10,8 +10,8 @@ POST {{dominio}}/api/v1/auth/register
 Content-Type: application/json
 
 {
-    "name": "Blue",
-    "email":"blue@hotmail.com",
+    "name": "Bluey",
+    "email":"bluey@hotmail.com",
     "password": "B7u3!"
 }
 

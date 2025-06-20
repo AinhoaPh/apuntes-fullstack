@@ -55,7 +55,7 @@ KMUFsIDTnFmyG3nMiGM6H9FNFUROf3wh7SmqJp-QV30 == eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZ
 
 ## Diferencia entre Sesiones vs uso de Token ( servidor )
 
-- `Token`: No posee un estado, toda la info necearia para manejar los permisos se encuetra dentro del token. JWT
+- `Token`: No posee un estado, toda la info necearia para manejar los permisos se encuetra dentro del token. JWT .Codigo como llave para acceder a la info.  y poder hacer futuras consultas devuelves el token y te devuelve la info.
 - `Sesiones`: El estado se guarda ene l sevidor y se usan cookies con id de sesion. Se utilizan en PHP
 
 Tomi hace Login ;( deja un archivo sobre cada una de las sesiones )
@@ -84,3 +84,30 @@ blue.cookie{
 
 - Los token JWT deben tener un tiempo de expiracion corto (15-60min)
 - Refresh token: Token de Larga duracion para obetenr nuevos token de acceso sin hacer un nuevo login (3-7dias)
+
+
+# Instalacion 
+
+
+# hash con bcrypt
+
+- bcrypt ( C++)-> solo para node.
+- bcryptJs-> sirve para hacer encriptaciones
+
+>Salt: String dinamico para forzar que el hash de dos string iguales sean distintos, y previene armar diccionarios de hashes con contraseñas conocidas. 
+>Hash: Crear una firma digital o string en base a lo que escribimos con el mismo num de caracteres. 
+>Compare: Metodo para comparar una clave actual con su firma digic
+tal / hash para ver si es valida 
+` const match = await bcrypt.compare(password, user.passwordHash);`
+
+
+```js
+import bcrypt from 'bcrypt'
+
+// generar una SaltKey
+const salt = await bcrypt.genSalt(10); // 10 es seguro para claves
+
+
+const hashedPassword = await bcrypt.hash(password, salt)
+
+```
