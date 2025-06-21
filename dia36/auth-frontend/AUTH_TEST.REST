@@ -11,9 +11,9 @@ Content-Type: application/json
 
 {
     "name": "Bluey",
-    "email":"bluey@hotmail.com",
-    "password": "B7u3!"
-}∫
+    "email":"bluey2020@hotmail.com",
+    "password": "B7u3"
+}
 
 ### INICIAR SESIÓN
 
