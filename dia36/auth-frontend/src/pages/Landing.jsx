@@ -8,7 +8,7 @@ const Landing = ( ) => {
         <h3>Estoy en landing </h3>
         <p>
         Mi Backend API Url es: 
-        <b>{BACKEND_API}</b>
+        <b>{BACKEND_API || "No carga la Url"}</b>
         </p>
         <Link to="/login"><button>Login</button></Link>
         <Link to="/register"><button>Registro</button></Link>
