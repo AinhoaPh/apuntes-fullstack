@@ -105,3 +105,34 @@ const Componente = () =>{
 
 # Paginas especiales 
 
+# Actividad 
+1. Obtener el endpoint de una pelicula por su id 152601
+
+2. Ancho 400: 
+`https://image.tmdb.org/t/p/w400/`
+
+3. BUscar el endpoint para obtener las peliculas que esten por sali
+`https://api.themoviedb.org/3/movie/upcoming`
+
+`https://api.themoviedb.org/3/movie/upcoming?api_key=<your_api_key>`
+
+4. Lista de top rated
+
+`https://api.themoviedb.org/3/movie/top_rated`
+
+5. Lista por categorias
+
+`https://api.themoviedb.org/3/genre/movie/list`
+6. Endpoint para traer ciencia ficcion
+`https://api.themoviedb.org/3/discover/movie?with_genres=878`
+
+7. peliculas 2025 de mas popu a menos 
+
+`https://api.themoviedb.org/3/discover/movie?primary_release_year=2025&sort_by=popularity.desc`
+8. Endpoint ciencia ficciom com ,as de 8 puntos con mas de 1000 votos ordena de mayor a menor con mas 1000 votos 
+
+`https://api.themoviedb.org/3/discover/movie?with_genres=878&vote_average.gte=8&vote_count.gte=1000&sort_by=popularity.desc`
+9. Todas las peliculas que contengas la palabra Matrix
+
+`https://api.themoviedb.org/3/search/movie?query={query}`
+`https://api.themoviedb.org/3/search/movie?api_key={api_key}&query={query}`
