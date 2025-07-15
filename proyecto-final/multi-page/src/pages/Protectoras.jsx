@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import { CardPersonaje } from '../components/CardProtectora';
-import { personajesMock } from '../mockdata'; // si quieres usar mock
+import { CardProtectora } from '../components/CardProtectora';
+
 
 const Personajes = () => {
     const [loading, setLoading] = useState(false); // estado de carga
