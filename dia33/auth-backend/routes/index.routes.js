@@ -1,12 +1,12 @@
-import { Router } from "express";
 // import {
-//   createUsuario,
-//   getUsuarios,
-//   getUsuariosById,
+  //   createUsuario,
+  //   getUsuarios,
+  //   getUsuariosById,
 //   updateUser,
 //   deleteUsuario
 // } from "../controllers/usuarios.controller.js";
 
+import { Router } from "express";
 import { loginUser, registerUser, getCurrentUser } from "../controllers/auth.controller.js";
 import { authMiddleware } from "../middleware/auth.middleware.js";
 export const router = Router();
